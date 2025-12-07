@@ -30,5 +30,48 @@
         </ul>
       </div>
     </nav>
+    <main class="container">
+      <h1>Zakazivanje termina</h1>
+      <p>
+        Popunite formular ispod kako bismo mogli da proverimo dostupnost termina 
+        i da vam se javimo putem mejla ili telefona.
+      </p>
+
+      <form action="#" method="post">
+        <div>
+          <label for="name">Ime i prezime</label><br>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+          <label for="email">E-mail</label><br>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+          <label for="phone">Broj telefona</label><br>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div>
+          <label for="datetime">Željeni termin</label><br>
+          <input type="datetime-local" id="datetime" name="datetime">
+        </div>
+
+        <div>
+          <label for="message">Dodatne želje / izrada kupona</label><br>
+          <textarea id="message" name="message" rows="4" placeholder="Na primer: želim kupon za poklon, tip masaže, napomene..."></textarea>
+        </div>
+
+        <button type="submit">Zakazite</button>
+      </form>
+
+      <section>
+        <p>
+          Naš salon možete pronaći i na platformi 
+          <a href="https://www.sredime.rs/nis/salon-momentum" target="_blank" rel="noopener noreferrer">sredi.me</a>. 
+        </p>
+      </section>
+    </main>
   </body>
 </html>
