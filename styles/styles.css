@@ -669,3 +669,17 @@ form textarea.success {
     font-size: 16px;
     margin: 0;
 }
+.language-switcher {
+  background: white;
+  color: var(--brown);
+  border: 2px solid var(--pink-mid);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
+.language-switcher:hover {
+  background: var(--pink-light);
+  color: var(--brown);
+  transform: translateY(-2px);
+}
