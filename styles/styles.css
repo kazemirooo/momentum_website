@@ -670,16 +670,19 @@ form textarea.success {
     margin: 0;
 }
 .language-switcher {
-  background: white;
-  color: var(--brown);
-  border: 2px solid var(--pink-mid);
-  font-weight: 600;
-  font-size: 16px;
-  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  padding: 4px;
 }
 
 .language-switcher:hover {
-  background: var(--pink-light);
-  color: var(--brown);
-  transform: translateY(-2px);
+  background: transparent;
+  transform: scale(1.1);
+}
+
+.language-switcher img {
+  width: 28px;
+  height: 20px;
+  display: block;
+  border-radius: 3px;
 }
