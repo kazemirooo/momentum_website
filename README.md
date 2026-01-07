@@ -184,8 +184,8 @@ Update service lists in:
 This project is licensed under the MIT License.
 
 ## 👤 Author
+Filip Krstić
 
-**Your Name**
 - GitHub: [@kazemirooo](https://github.com/kazemiroo)
 - Website: Cooming soon
 
