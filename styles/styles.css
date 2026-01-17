@@ -333,6 +333,15 @@ main.container {
     line-height: 1.7;
     color: var(--brown-light);
 }
+.usluge-levi ul li::before,
+.usluge-desni ul li::before {
+    display: none;
+}
+
+.usluge-levi ul li,
+.usluge-desni ul li {
+    padding-left: 0;
+}
 
 main section {
     display: grid;
@@ -670,19 +679,19 @@ form textarea.success {
     margin: 0;
 }
 .language-switcher {
-  background: transparent;
-  border: none;
-  padding: 4px;
+    background: transparent;
+    border: none;
+    padding: 4px;
 }
 
 .language-switcher:hover {
-  background: transparent;
-  transform: scale(1.1);
+    background: transparent;
+    transform: scale(1.1);
 }
 
 .language-switcher img {
-  width: 28px;
-  height: 20px;
-  display: block;
-  border-radius: 3px;
+    width: 28px;
+    height: 20px;
+    display: block;
+    border-radius: 3px;
 }
