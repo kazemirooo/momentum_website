@@ -1,8 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+// ===== scripts.js - Event Listeners =====
+
+import { isValidEmail, isValidPhone, isValidName, isDateInPast, debounce, throttle } from './helper.js';
+import { encryptFormData } from './crypto.js';
+
+// ===== STICKY HEADER =====
+document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('nav');
+  if (!nav) return;
+  
   let lastScroll = 0;
   
-  window.addEventListener('scroll', function() {
+  const handleScroll = () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 100) {
@@ -18,11 +26,120 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     lastScroll = currentScroll;
+  };
+  
+  window.addEventListener('scroll', throttle(handleScroll, 100));
+});
+
+// ===== HAMBURGER MENU =====
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!hamburger || !navMenu) return;
+  
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+  
+  // Close menu when you click on link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
   });
 });
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
+
+// ===== SCROLL ANIMATIONS =====
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.about, .bottom-buttons, article, .usluge-levi, .usluge-desni, .testimonial, form');
   
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-up');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  elements.forEach(el => observer.observe(el));
+});
+
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 500);
+  }
+});
+
+// ===== BACK TO TOP BUTTON =====
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTop = document.getElementById('back-to-top');
+  if (!backToTop) return;
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  };
+  
+  window.addEventListener('scroll', throttle(handleScroll, 100));
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ===== PROGRESS BAR =====
+window.addEventListener('scroll', throttle(() => {
+  const progressBar = document.querySelector('.progress-bar');
+  if (!progressBar) return;
+  
+  const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (window.pageYOffset / windowHeight) * 100;
+  progressBar.style.width = scrolled + '%';
+}, 50));
+
+// ===== LIGHTBOX =====
+document.addEventListener('DOMContentLoaded', () => {
+  const viewBtns = document.querySelectorAll('.view-btn');
+  const lightbox = document.querySelector('.lightbox');
+  
+  if (!lightbox) return;
+  
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.equipment-card');
+      const img = card.dataset.image;
+      lightbox.querySelector('img').src = img;
+      lightbox.classList.add('active');
+    });
+  });
+
+  const closeBtn = lightbox.querySelector('.close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+});
+
+// ===== FORM VALIDATION =====
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
   if (!form) return;
   
   const nameInput = document.getElementById('name');
@@ -30,158 +147,133 @@ document.addEventListener('DOMContentLoaded', function() {
   const phoneInput = document.getElementById('phone');
   const datetimeInput = document.getElementById('datetime');
   
-  function showError(input, message) {
-    const formDiv = input.parentElement;
-    
-    const existingError = formDiv.querySelector('.error-message');
-    if (existingError) {
-      existingError.remove();
-    }
-    
+  const showError = (input, msg) => {
+    const div = input.parentElement;
+    div.querySelector('.error-message')?.remove();
     input.classList.add('error');
     input.classList.remove('success');
-    
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    formDiv.appendChild(errorDiv);
-  }
+    const err = document.createElement('div');
+    err.className = 'error-message';
+    err.textContent = msg;
+    div.appendChild(err);
+  };
   
-  function removeError(input) {
-    const formDiv = input.parentElement;
-    const errorMessage = formDiv.querySelector('.error-message');
-    
-    if (errorMessage) {
-      errorMessage.remove();
-    }
-    
+  const removeError = (input) => {
+    input.parentElement.querySelector('.error-message')?.remove();
     input.classList.remove('error');
     input.classList.add('success');
-  }
+  };
   
-  function validateName() {
-    const nameValue = nameInput.value.trim();
-    
-    if (nameValue === '') {
+  const validateName = () => {
+    const val = nameInput.value.trim();
+    if (!val) {
       showError(nameInput, 'Ime i prezime je obavezno');
       return false;
-    } else if (nameValue.length < 3) {
+    }
+    if (val.length < 3) {
       showError(nameInput, 'Ime mora imati najmanje 3 karaktera');
       return false;
-    } else if (!/^[a-zA-ZčćžšđČĆŽŠĐ\s]+$/.test(nameValue)) {
+    }
+    if (!isValidName(val)) {
       showError(nameInput, 'Ime može sadržati samo slova');
       return false;
-    } else {
-      removeError(nameInput);
-      return true;
     }
-  }
+    removeError(nameInput);
+    return true;
+  };
   
-  function validateEmail() {
-    const emailValue = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (emailValue === '') {
+  const validateEmail = () => {
+    const val = emailInput.value.trim();
+    if (!val) {
       showError(emailInput, 'Email je obavezan');
       return false;
-    } else if (!emailPattern.test(emailValue)) {
-      showError(emailInput, 'Unesite validan email (npr. ime@primer.com)');
-      return false;
-    } else {
-      removeError(emailInput);
-      return true;
     }
-  }
+    if (!isValidEmail(val)) {
+      showError(emailInput, 'Unesite validan email');
+      return false;
+    }
+    removeError(emailInput);
+    return true;
+  };
   
-  function validatePhone() {
-    const phoneValue = phoneInput.value.trim();
-    const phonePattern = /^[0-9+\-\s()]+$/;
-    
-    if (phoneValue === '') {
+  const validatePhone = () => {
+    const val = phoneInput.value.trim();
+    if (!val) {
       showError(phoneInput, 'Broj telefona je obavezan');
       return false;
-    } else if (!phonePattern.test(phoneValue) || phoneValue.replace(/[^0-9]/g, '').length < 9) {
+    }
+    if (!isValidPhone(val)) {
       showError(phoneInput, 'Unesite validan broj telefona');
       return false;
-    } else {
-      removeError(phoneInput);
-      return true;
     }
-  }
+    removeError(phoneInput);
+    return true;
+  };
   
-  function validateDatetime() {
-    const datetimeValue = datetimeInput.value;
-    
-    if (datetimeValue === '') {
+  const validateDatetime = () => {
+    const val = datetimeInput.value;
+    if (!val) {
       showError(datetimeInput, 'Molimo izaberite željeni termin');
       return false;
     }
-    
-    const selectedDate = new Date(datetimeValue);
-    const now = new Date();
-    
-    if (selectedDate < now) {
+    if (isDateInPast(val)) {
       showError(datetimeInput, 'Ne možete izabrati prošli termin');
       return false;
     }
-    
     removeError(datetimeInput);
     return true;
-  }
+  };
   
+  // Event listeners for live validation
   nameInput.addEventListener('blur', validateName);
   emailInput.addEventListener('blur', validateEmail);
   phoneInput.addEventListener('blur', validatePhone);
   datetimeInput.addEventListener('blur', validateDatetime);
   
-  nameInput.addEventListener('input', function() {
-    if (this.classList.contains('error')) {
-      validateName();
-    }
-  });
+  nameInput.addEventListener('input', debounce(() => {
+    if (nameInput.classList.contains('error')) validateName();
+  }, 300));
   
-  emailInput.addEventListener('input', function() {
-    if (this.classList.contains('error')) {
-      validateEmail();
-    }
-  });
+  emailInput.addEventListener('input', debounce(() => {
+    if (emailInput.classList.contains('error')) validateEmail();
+  }, 300));
   
-  phoneInput.addEventListener('input', function() {
-    if (this.classList.contains('error')) {
-      validatePhone();
-    }
-  });
+  phoneInput.addEventListener('input', debounce(() => {
+    if (phoneInput.classList.contains('error')) validatePhone();
+  }, 300));
   
-  form.addEventListener('submit', function(e) {
+  // Submit event
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    const isNameValid = validateName();
-    const isEmailValid = validateEmail();
-    const isPhoneValid = validatePhone();
-    const isDatetimeValid = validateDatetime();
+    const valid = validateName() && validateEmail() && validatePhone() && validateDatetime();
     
-    if (isNameValid && isEmailValid && isPhoneValid && isDatetimeValid) {
-  
-      const successMessage = document.createElement('div');
-      successMessage.className = 'success-message';
-      successMessage.innerHTML = `
-        <h3>✓ Uspešno poslato!</h3>
-        <p>Vaš zahtev je primljen. Kontaktiraćemo vas uskoro.</p>
-      `;
+    if (valid) {
+      // Encrypt data
+      const formData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        phone: phoneInput.value,
+        datetime: datetimeInput.value,
+        message: document.getElementById('message').value
+      };
       
-      form.insertAdjacentElement('beforebegin', successMessage);
+      const encrypted = encryptFormData(formData);
+      console.log('Enkriptovani podaci:', encrypted);
       
-      setTimeout(function() {
+      // Success message
+      const msg = document.createElement('div');
+      msg.className = 'success-message';
+      msg.innerHTML = '<h3>✓ Uspešno poslato!</h3><p>Vaš zahtev je primljen. Kontaktiraćemo vas uskoro.</p>';
+      form.insertAdjacentElement('beforebegin', msg);
+      
+      setTimeout(() => {
         form.reset();
         document.querySelectorAll('.success').forEach(el => el.classList.remove('success'));
-        successMessage.remove();
+        msg.remove();
       }, 3000);
     } else {
-
-      const firstError = document.querySelector('.error');
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      document.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 });
