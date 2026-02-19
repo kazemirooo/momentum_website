@@ -713,15 +713,14 @@ form textarea.success {
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: translateY(8px) rotate(45deg);
 }
-
 .hamburger.active span:nth-child(2) {
+    transform: scaleX(0);
     opacity: 0;
 }
-
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -953,5 +952,21 @@ form textarea.success {
     nav a:first-child:active {
         background: none !important;
         transform: none !important;
+    }
+}
+/* Fix hamburger X dots and menu height */
+@media (max-width: 768px) {
+    nav ul.nav-menu {
+        height: auto !important;
+        min-height: unset !important;
+    }
+
+    .hamburger span {
+        display: block !important;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        display: none !important;
     }
 }
