@@ -1,18 +1,27 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum</title>
+        <link rel="icon" type="image/png" href="assets/logo/logo.png">
+        <meta name="description" content="Salon Momentum je oaza relaksacije i nege tela, specijalizovana za profesionalne masaže i tretmane za oblikovanje tela. Zakažite termin već danas!">
+        <meta property="og:title" content="Momentum — Salon za masažu i tretmane, Niš">
+        <meta property="og:description" content="Profesionalne masaže i tretmani tela u Nišu. Zakažite termin već danas!">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com">
+        <meta property="og:type" content="website">
+
+        <title>Momentum — Salon za masažu, Niš</title>
         <link rel="stylesheet" href="styles/styles.css" />
-        <script type="module" src="js/scripts.js" ></script>
+        <script type="module" src="js/scripts.js"></script>
     </head>
     <body>
-  <!-- PARTICLES BACKGROUND -->
-  <div id="particles-js"></div>
+        <!-- PARTICLES BACKGROUND -->
+        <div id="particles-js"></div>
 
-  <!-- Progress bar -->
-  <div class="progress-bar"></div>
+        <!-- Progress bar -->
+        <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
@@ -20,36 +29,35 @@
                         <img src="assets/logo/logo.png" alt="Momentum" />
                     </a>
 
-                    <ul class ="nav-menu">
+                    <ul class="nav-menu">
                         <li>
                             <a href="pages/usluge.html">Usluge</a>
                             <ul>
                                 <li><a href="pages/masaza.html">Masaža</a></li>
-                                <li>
-                                    <a href="pages/paketi_masaza.html">Paketi masaža</a>
-                                </li>
+                                <li><a href="pages/paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
                         <li><a href="pages/aparati.html">Aparati</a></li>
                         <li><a href="pages/kuponi.html">Kuponi</a></li>
                         <li>
                             <a class="kontakt-link" href="pages/kontakt.html">Kontakt</a>
                         </li>
                         <li>
-                            <a href="pages/index_en.html" class="language-switcher">  
-                            <img src="assets/icons/uk-flag.png" alt="English"></a>
+                            <a href="pages/index_en.html" class="language-switcher">
+                                <img src="assets/icons/uk-flag.png" alt="English">
+                            </a>
                         </li>
                     </ul>
+
                     <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                </div>
- 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
+
         <main>
             <section class="hero">
                 <h1>Momentum</h1>
@@ -57,6 +65,7 @@
                     Tvoje telo je hram, a svaki dodir obnavlja njegov zamah.
                 </p>
             </section>
+
             <section class="bottom-corners">
                 <div class="about">
                     <h2>O nama</h2>
@@ -72,99 +81,59 @@
                 </div>
             </section>
         </main>
+
         <footer>
             <section>
                 <h3>Momentum</h3>
+                <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
 
             <section>
                 <h4>Kontakt</h4>
+                <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
+                <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
+                <p>📧</p>
             </section>
 
             <section>
                 <h5>Radno vreme</h5>
+                <p>Ponedeljak – Petak: 17:00 – 22:00</p>
+                <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
 
             <section>
-                <p>© 2025 Momentum. Sva prava zadržana.</p>
+                <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
-        <!-- PARTICLES.JS -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-<!-- Particles Config -->
-<script>
-particlesJS('particles-js', {
-  particles: {
-    number: {
-      value: 80,
-      density: {
-        enable: true,
-        value_area: 800
-      }
-    },
-    color: {
-      value: "#ffb6c9"
-    },
-    shape: {
-      type: "circle"
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: true,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false
-      }
-    },
-    size: {
-      value: 3,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
-        sync: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#ffc8d9",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "repulse"
-      },
-      onclick: {
-        enable: true,
-        mode: "push"
-      },
-      resize: true
-    }
-  },
-  retina_detect: true
-});
-</script>
+        <!-- PARTICLES.JS — samo na desktopu -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+            if (window.innerWidth > 768) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffb6c9" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: false, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                        size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                        line_linked: { enable: true, distance: 150, color: "#ffc8d9", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" },
+                            resize: true
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+        </script>
 
-<!-- Back to top -->
-<button id="back-to-top" class="back-to-top">↑</button>
+        <!-- Back to top -->
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>
