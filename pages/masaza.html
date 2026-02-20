@@ -1,20 +1,147 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum-Masaza</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — profesionalne masaže za opuštanje, redukciju stresa i negu tela. Masaža leđa, celog tela, nogu i anticelulit masaža.">
+        <meta property="og:title" content="Masaže — Momentum Salon, Niš">
+        <meta property="og:description" content="Profesionalne masaže za opuštanje i negu tela u Nišu. Od 1.200 RSD.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/masaza.html">
+        <meta property="og:type" content="website">
+
+        <title>Masaže — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .page-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .page-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
+            .masaze-grid {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            .masaza-card {
+                background: white;
+                border-radius: 16px;
+                padding: 28px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .masaza-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            .masaza-card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .masaza-card h2 {
+                font-size: 18px;
+                color: var(--pink-mid);
+                margin: 0;
+                line-height: 1.4;
+            }
+            .masaza-card-cena {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                flex-shrink: 0;
+            }
+            .masaza-card-cena .cena {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--brown);
+                white-space: nowrap;
+            }
+            .masaza-card-cena .vreme {
+                font-size: 12px;
+                color: #aaa;
+                white-space: nowrap;
+            }
+            .masaza-card p {
+                font-size: 13px;
+                color: var(--brown-light);
+                line-height: 1.7;
+                margin: 0;
+            }
+            .badge-popular {
+                display: inline-block;
+                background: #fff3cd;
+                color: #856404;
+                font-size: 11px;
+                font-weight: 600;
+                padding: 3px 10px;
+                border-radius: 20px;
+                width: fit-content;
+            }
+            .masaze-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .masaze-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .masaze-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            @media (max-width: 768px) {
+                .masaze-grid { grid-template-columns: 1fr; }
+                .page-hero h1 { font-size: 36px; }
+                .masaze-cta { margin: 0 15px 40px; padding: 30px 20px; }
+            }
+        </style>
     </head>
     <body>
+        <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
                     <a href="../index.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a class="active" href="usluge.html">Usluge</a>
@@ -23,64 +150,123 @@
                                 <li><a href="paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
                         <li><a href="aparati.html">Aparati</a></li>
                         <li><a href="kuponi.html">Kuponi</a></li>
-                        <li> <a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
-                        <li><a href="massage_en.html" class="language-switcher"><img src="../assets/icons/uk-flag.png" alt="English"></a></li>
+                        <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
+                        <li>
+                            <a href="massage_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
+                        </li>
                     </ul>
                     <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
-        <main class="container">
-            <h1>Masaže</h1>
 
-            <section>
-                <h2>Vrste masaža</h2>
-                <ul>
-                    <li>Relax masaža — 2000 RSD</li>
-                    <li>Terapeutska masaža — 2500 RSD</li>
-                    <li>Masaža lica — 1500 RSD</li>
-                    <li>Masaža vulkanskim kamenjem — 3000 RSD</li>
-                </ul>
-            </section>
+        <main>
+            <div class="page-hero">
+                <h1>Masaže</h1>
+                <p>Ručne masaže za opuštanje mišića, redukciju stresa i negu tela — prilagođene Vašim potrebama.</p>
+            </div>
 
-            <section>
-                <h2>Opis</h2>
-                <p>
-                    U ponudi imamo različite masaže koje pomažu opuštanju tela,
-                    ublažavanju bolova i unapređenju opšteg zdravlja.
-                </p>
-            </section>
+            <div class="masaze-grid">
+
+                <div class="masaza-card">
+                    <span class="badge-popular">⭐ popularno</span>
+                    <div class="masaza-card-header">
+                        <h2>Masaža leđa</h2>
+                        <div class="masaza-card-cena">
+                            <span class="cena">1.900 RSD</span>
+                            <span class="vreme">45 min</span>
+                        </div>
+                    </div>
+                    <p>Duboka relaksacija leđnih mišića, otklanjanje napetosti i bolova u kičmi. Idealna za one koji provode dugo vreme sedeći ili imaju hronične bolove u leđima.</p>
+                </div>
+
+                <div class="masaza-card">
+                    <span class="badge-popular">⭐ popularno</span>
+                    <div class="masaza-card-header">
+                        <h2>Masaža leđa</h2>
+                        <div class="masaza-card-cena">
+                            <span class="cena">1.500 RSD</span>
+                            <span class="vreme">30 min</span>
+                        </div>
+                    </div>
+                    <p>Kraća verzija masaže leđa za brzo otklanjanje napetosti i stresa. Savršena kada nemate puno vremena, a trebate opuštanje.</p>
+                </div>
+
+                <div class="masaza-card">
+                    <span class="badge-popular">⭐ popularno</span>
+                    <div class="masaza-card-header">
+                        <h2>Masaža celog tela</h2>
+                        <div class="masaza-card-cena">
+                            <span class="cena">2.300 RSD</span>
+                            <span class="vreme">60 min</span>
+                        </div>
+                    </div>
+                    <p>Kompletna relaksacija celog tela — od glave do pete. Poboljšava cirkulaciju, smanjuje stres i vraća energiju. Naš najpopularniji tretman.</p>
+                </div>
+
+                <div class="masaza-card">
+                    <div class="masaza-card-header">
+                        <h2>Masaža nogu</h2>
+                        <div class="masaza-card-cena">
+                            <span class="cena">1.200 RSD</span>
+                            <span class="vreme">30 min</span>
+                        </div>
+                    </div>
+                    <p>Opuštanje umornih nogu, poboljšanje cirkulacije i smanjenje otoka. Posebno preporučujemo osobama koje dugo stoje ili hodaju.</p>
+                </div>
+
+                <div class="masaza-card">
+                    <div class="masaza-card-header">
+                        <h2>Ručna anticelulit masaža</h2>
+                        <div class="masaza-card-cena">
+                            <span class="cena">1.500 RSD</span>
+                            <span class="vreme">40 min</span>
+                        </div>
+                    </div>
+                    <p>Intenzivna masaža koja pospešuje cirkulaciju, smanjuje zadržavanje tečnosti i pomaže da koža bude zategnutija i glatkija. Najbolji rezultati dolaze uz redovne tretmane.</p>
+                </div>
+
+            </div>
+
+            <div class="masaze-cta">
+                <h3>Zakažite masažu</h3>
+                <p>Kontaktirajte nas ili zakažite termin online. Preporučujemo i naše pakete masaža po povoljnijim cenama.</p>
+                <div class="btn-group">
+                    <a href="kontakt.html" class="btn">Zakažite termin</a>
+                    <a href="paketi_masaza.html" class="btn">Paketi masaža</a>
+                </div>
+            </div>
         </main>
+
         <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

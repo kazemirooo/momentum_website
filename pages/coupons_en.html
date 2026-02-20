@@ -1,97 +1,222 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Momentum - Gift Coupons</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script type="module" src="../js/scripts.js"></script>
-  </head>
-      <body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — gift vouchers for massages and treatments. The perfect gift for a loved one.">
+        <meta property="og:title" content="Gift Vouchers — Momentum Salon, Niš">
+        <meta property="og:description" content="Gift vouchers for massages and treatments in Niš. Valid for 6 months from purchase.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/coupons_en.html">
+        <meta property="og:type" content="website">
+
+        <title>Gift Vouchers — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero { text-align: center; padding: 60px 20px 40px; }
+            .page-hero h1 { font-size: 48px; color: var(--brown); margin-bottom: 15px; }
+            .page-hero p { font-size: 18px; color: var(--brown-light); max-width: 650px; margin: 0 auto; line-height: 1.7; font-style: italic; }
+            .kuponi-info { max-width: 800px; margin: 0 auto 50px; padding: 30px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
+            .kuponi-info-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-top: 25px; }
+            .kuponi-info-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+            .kuponi-info-item .icon { font-size: 32px; }
+            .kuponi-info-item h4 { font-size: 15px; color: var(--brown); margin: 0; }
+            .kuponi-info-item p { font-size: 13px; color: var(--brown-light); margin: 0; line-height: 1.5; }
+            .kuponi-grid { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+            .kupon-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; display: flex; flex-direction: column; }
+            .kupon-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+            .kupon-card-top { background: linear-gradient(135deg, var(--pink-light), var(--pink-mid)); padding: 30px; text-align: center; position: relative; }
+            .kupon-card-top::after { content: ''; position: absolute; bottom: -15px; left: 0; right: 0; height: 30px; background: white; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+            .kupon-card-top .emoji { font-size: 42px; display: block; margin-bottom: 10px; }
+            .kupon-card-top h3 { font-size: 20px; color: var(--brown); margin: 0; }
+            .kupon-card-body { padding: 30px 25px 25px; flex: 1; display: flex; flex-direction: column; gap: 15px; }
+            .kupon-card-body p { font-size: 14px; color: var(--brown-light); line-height: 1.7; margin: 0; }
+            .kupon-card-body ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+            .kupon-card-body ul li { font-size: 14px; color: var(--brown); padding-left: 20px; position: relative; }
+            .kupon-card-body ul li::before { content: "✓"; position: absolute; left: 0; color: var(--pink-mid); font-weight: 700; }
+            .kupon-card-body .btn { display: block; text-align: center; margin-top: auto; }
+            .kupon-vaznost { font-size: 12px; color: #aaa; text-align: center; }
+            .kuponi-cta { text-align: center; padding: 50px 20px; max-width: 650px; margin: 0 auto 60px; background: linear-gradient(135deg, var(--pink-light), #fff5f8); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+            .kuponi-cta h3 { font-size: 28px; color: var(--brown); margin-bottom: 12px; }
+            .kuponi-cta p { color: var(--brown-light); margin-bottom: 25px; line-height: 1.7; }
+            .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+            @media (max-width: 768px) { .kuponi-grid { grid-template-columns: 1fr; } .kuponi-info-grid { grid-template-columns: 1fr; gap: 20px; } .page-hero h1 { font-size: 36px; } .kuponi-cta { margin: 0 15px 40px; padding: 30px 20px; } .kuponi-info { margin: 0 15px 30px; } }
+        </style>
+    </head>
+    <body>
+        <div class="progress-bar"></div>
+
         <header>
-    <nav>
-      <div class="container">
-        <a href="index_en.html">
-          <img src="../assets/logo/logo.png" alt="Momentum">
-        </a>
+            <nav>
+                <div class="container">
+                    <a href="index_en.html">
+                        <img src="../assets/logo/logo.png" alt="Momentum" />
+                    </a>
+                    <ul class="nav-menu">
+                        <li>
+                            <a href="services_en.html">Services</a>
+                            <ul>
+                                <li><a href="massage_en.html">Massage</a></li>
+                                <li><a href="packages_en.html">Packages</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="equipment_en.html">Equipment</a></li>
+                        <li><a class="active" href="coupons_en.html">Coupons</a></li>
+                        <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
+                        <li>
+                            <a href="kuponi.html" class="language-switcher">
+                                <img src="../assets/icons/rs-flag.png" alt="Serbian">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-        <ul class="nav-menu">
-          <li>
-            <a href="services_en.html">Services</a>
-            <ul>
-              <li><a href="massage_en.html">Massage</a></li>
-              <li><a href="packages_en.html">Packages</a></li>
-            </ul>
-          </li>
+        <main>
+            <div class="page-hero">
+                <h1>🎁 Treat Your Loved One</h1>
+                <p>A gift voucher for a massage or treatment — the perfect gift for a birthday, anniversary, or simply to show someone how much they mean to you.</p>
+            </div>
 
-          <li><a href="equipment_en.html">Equipment</a></li>
-          <li><a class="active" href="coupons_en.html">Coupons</a></li>
-          <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
-          <li><a href="kuponi.html" class="language-switcher">
-            <img src="../assets/icons/rs-flag.png" alt="Serbian">
-          </a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-      </div>
-      </div>
-    </nav>
-      </header>
-    <main class="container">
+            <div class="kuponi-info">
+                <h2>Why a Gift Voucher?</h2>
+                <div class="kuponi-info-grid">
+                    <div class="kuponi-info-item">
+                        <span class="icon">⏰</span>
+                        <h4>Valid for 6 Months</h4>
+                        <p>The voucher is valid for 6 months from the date of purchase — plenty of time to use it.</p>
+                    </div>
+                    <div class="kuponi-info-item">
+                        <span class="icon">✍️</span>
+                        <h4>Personalized</h4>
+                        <p>You can add a personal message and the recipient's name to the voucher.</p>
+                    </div>
+                    <div class="kuponi-info-item">
+                        <span class="icon">💆</span>
+                        <h4>Unforgettable Experience</h4>
+                        <p>A gift that provides true relaxation and care — always welcome.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h1>Surprise Your Loved One</h1>
+            <div class="kuponi-grid">
 
-        <p>
-            A gift coupon is the perfect way to surprise someone who matters to you.
-            Whether it's a birthday, anniversary, or simply a desire to delight
-            your loved one - a massage or treatment at Momentum salon is a gift that can
-            never miss.
-        </p>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">🤲</span>
+                        <h3>Massage Voucher</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Gift voucher for one massage of choice — perfect for relaxation and recovery.</p>
+                        <ul>
+                            <li>Back massage (30 or 45 min)</li>
+                            <li>Full body massage (60 min)</li>
+                            <li>Leg massage (30 min)</li>
+                            <li>Anti-cellulite massage (40 min)</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Valid 6 months from purchase</span>
+                        <a href="contact_en.html" class="btn">Order voucher</a>
+                    </div>
+                </div>
 
-        <p>
-            You can choose a coupon of any value, or according to a specific service.
-            The coupon is valid for 6 months from the date of purchase.
-        </p>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">✨</span>
+                        <h3>Body Treatment Voucher</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Gift voucher for one body treatment of choice — for shaping and body care.</p>
+                        <ul>
+                            <li>Ultrasound cavitation</li>
+                            <li>Radiofrequency lifting</li>
+                            <li>Pressotherapy</li>
+                            <li>Vacuum treatment</li>
+                            <li>RF face lifting</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Valid 6 months from purchase</span>
+                        <a href="contact_en.html" class="btn">Order voucher</a>
+                    </div>
+                </div>
 
-        <h2>Types of Gift Coupons</h2>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">🎀</span>
+                        <h3>Package Voucher</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Gift voucher for a package of 5 treatments — ideal for those who want ongoing care.</p>
+                        <ul>
+                            <li>Full body massage package (5x)</li>
+                            <li>Back massage package (5x)</li>
+                            <li>Body treatment package (5x)</li>
+                            <li>Combined packages with discount</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Valid 6 months from purchase</span>
+                        <a href="contact_en.html" class="btn">Order voucher</a>
+                    </div>
+                </div>
 
-        <ul>
-            <li>Coupon for relaxation massage (30 min / 60 min)</li>
-            <li>Coupon for anti-cellulite treatment</li>
-            <li>Coupon for hot stone massage</li>
-            <li>Coupon for massage package (3, 5 or 10 massages)</li>
-        </ul>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">💝</span>
+                        <h3>Value Voucher</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>A voucher for an amount of your choice — the recipient chooses the treatment that suits them best.</p>
+                        <ul>
+                            <li>Amount of your choice</li>
+                            <li>Free choice of treatment</li>
+                            <li>Personalized message</li>
+                            <li>Can be used for any service</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Valid 6 months from purchase</span>
+                        <a href="contact_en.html" class="btn">Order voucher</a>
+                    </div>
+                </div>
 
-        <p>
-            To create a personalized coupon, contact us via the
-            <a href="contact_en.html">Contact</a> page.
-        </p>
+            </div>
 
-    </main>
-     <footer>
-    <section>
-        <h3>Momentum</h3>
-        <p>A salon dedicated to your relaxation, beauty and body balance.</p>
-    </section>
+            <div class="kuponi-cta">
+                <h3>How to Order a Voucher?</h3>
+                <p>Contact us via the contact form or by phone. Let us know which treatment you'd like the voucher for and whether you'd like a personal message — we'll take care of the rest!</p>
+                <div class="btn-group">
+                    <a href="contact_en.html" class="btn">Contact us</a>
+                    <a href="tel:+381603321512" class="btn">060 3321 512</a>
+                </div>
+            </div>
+        </main>
 
-    <section>
-        <h4>Contact</h4>
-        <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
-        <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
-        <p>📧</p>
-    </section>
+        <footer>
+            <section>
+                <h3>Momentum</h3>
+                <p>A salon dedicated to your relaxation, beauty and body balance.</p>
+            </section>
+            <section>
+                <h4>Contact</h4>
+                <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
+                <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
+                <p>📧</p>
+            </section>
+            <section>
+                <h5>Working Hours</h5>
+                <p>Monday – Friday: 17:00 – 22:00</p>
+                <p>Saturday – Sunday: 12:00 – 22:00</p>
+            </section>
+            <section>
+                <p>© 2026 Momentum. All rights reserved.</p>
+            </section>
+        </footer>
 
-    <section>
-        <h5>Working Hours</h5>
-        <p>Monday – Friday: 17:00 – 22:00</p>
-        <p>Saturday – Sunday: 12:00 – 22:00</p>
-    </section>
-
-    <section>
-        <p>© 2026 Momentum. All rights reserved.</p>
-    </section>
-</footer>
-  </body>
+        <button id="back-to-top" class="back-to-top">↑</button>
+    </body>
 </html>

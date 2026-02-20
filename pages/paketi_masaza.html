@@ -1,15 +1,159 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum-Paketi masaza</title>
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — paketi masaža i tretmana od 5 termina po povoljnijim cenama. Uštedite do 20%.">
+        <meta property="og:title" content="Paketi masaža i tretmana — Momentum Salon, Niš">
+        <meta property="og:description" content="Paketi od 5 tretmana sa popustom do 20% u Nišu.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/paketi_masaza.html">
+        <meta property="og:type" content="website">
+
+        <title>Paketi masaža i tretmana — Momentum</title>
         <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .page-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .page-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
+
+            .paketi-section {
+                max-width: 1100px;
+                margin: 0 auto 50px;
+                padding: 0 20px;
+            }
+            .paketi-section h2 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid var(--pink-light);
+            }
+            .paketi-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .paket-card {
+                background: white;
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                position: relative;
+            }
+            .paket-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            .paket-card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .paket-card h3 {
+                font-size: 16px;
+                color: var(--pink-mid);
+                margin: 0;
+                line-height: 1.4;
+            }
+            .paket-card-cena {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                flex-shrink: 0;
+            }
+            .paket-card-cena .cena {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--brown);
+                white-space: nowrap;
+            }
+            .paket-card-cena .stara-cena {
+                font-size: 12px;
+                color: #bbb;
+                text-decoration: line-through;
+                white-space: nowrap;
+            }
+            .paket-card-cena .vreme {
+                font-size: 11px;
+                color: #aaa;
+                white-space: nowrap;
+            }
+            .paket-card p {
+                font-size: 13px;
+                color: var(--brown-light);
+                line-height: 1.6;
+                margin: 0;
+            }
+            .badge-popust {
+                display: inline-block;
+                background: #d4edda;
+                color: #155724;
+                font-size: 11px;
+                font-weight: 600;
+                padding: 3px 10px;
+                border-radius: 20px;
+                width: fit-content;
+            }
+
+            .paketi-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .paketi-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .paketi-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            @media (max-width: 768px) {
+                .paketi-grid { grid-template-columns: 1fr; }
+                .page-hero h1 { font-size: 36px; }
+                .paketi-cta { margin: 0 15px 40px; padding: 30px 20px; }
+            }
+        </style>
     </head>
     <body>
-        
-        <!-- PROGRESS BAR -->
         <div class="progress-bar"></div>
 
         <header>
@@ -18,7 +162,6 @@
                     <a href="../index.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a class="active" href="usluge.html">Usluge</a>
@@ -27,13 +170,15 @@
                                 <li><a href="paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
                         <li><a href="aparati.html">Aparati</a></li>
                         <li><a href="kuponi.html">Kuponi</a></li>
                         <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
-                        <li><a href="packages_en.html" class="language-switcher"><img src="../assets/icons/uk-flag.png" alt="English"></a></li>
+                        <li>
+                            <a href="packages_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
+                        </li>
                     </ul>
-                    
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -42,55 +187,217 @@
                 </div>
             </nav>
         </header>
-        
-        <main class="container">
-            <h1>Paketi masaža</h1>
 
-            <section>
-                <h2>Ponuda paketa</h2>
-                <ul>
-                    <li>Paket 1 (3 masaže) — 5000 RSD</li>
-                    <li>Paket 2 (5 masaža) — 7500 RSD</li>
-                    <li>Paket 3 (10 masaža) — 14000 RSD</li>
-                </ul>
-            </section>
+        <main>
+            <div class="page-hero">
+                <h1>Paketi masaža i tretmana</h1>
+                <p>Paket od 5 tretmana — uštedite do 20% i obezbedite kontinuitet nege za najbolje rezultate.</p>
+            </div>
 
-            <section>
-                <h2>Opis</h2>
-                <p>
-                    Naši paketi masaža omogućavaju značajnu uštedu i pružaju
-                    kontinuitet tretmana za najbolje rezultate. Pogodni su za
-                    poklon ili ličnu negu.
-                </p>
-            </section>
+            <!-- PAKETI MASAZA -->
+            <div class="paketi-section">
+                <h2>🤲 Paketi masaža</h2>
+                <div class="paketi-grid">
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Masaža celog tela — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">10.000 RSD</span>
+                                <span class="vreme">60 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana masaže celog tela — kompletna relaksacija i nega tela uz značajnu uštedu.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Masaža leđa — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">6.500 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana masaže leđa — redovno otklanjanje napetosti i bolova za trajne rezultate.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Ručna anticelulit masaža — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">6.500 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana ručne anticelulit masaže — redovni tretmani za vidljivo smanjenje celulita i zategnutiju kožu.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAKETI APARATA -->
+            <div class="paketi-section">
+                <h2>✨ Paketi aparativnih tretmana</h2>
+                <div class="paketi-grid">
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Ultrazvučna kavitacija — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">5.600 RSD</span>
+                                <span class="stara-cena">7.000 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana kavitacije za razgradnju masnih naslaga i oblikovanje tela.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Radiotalasni lifting — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.800 RSD</span>
+                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana radiotalasnog liftinga za zatezanje kože i stimulaciju kolagena.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Kavitacija + Radiotalasni lifting — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.800 RSD</span>
+                                <span class="stara-cena">11.000 RSD</span>
+                                <span class="vreme">60 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>Kombinovani paket za maksimalne rezultate — kavitacija + lifting u jednom tretmanu.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Presoterapija — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.800 RSD</span>
+                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="vreme">45 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana presoterapije za limfnu drenažu, smanjenje otoka i detoksikaciju organizma.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Presoterapija + kavitacija — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">9.200 RSD</span>
+                                <span class="stara-cena">11.500 RSD</span>
+                                <span class="vreme">60 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>Kombinacija limfne drenaže i kavitacije za detoksikaciju i oblikovanje tela istovremeno.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Vakum po regiji — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.000 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 vakum tretmana za poboljšanje cirkulacije i smanjenje celulita po regiji.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Kavitacija + vakum — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.000 RSD</span>
+                                <span class="stara-cena">10.000 RSD</span>
+                                <span class="vreme">50 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>Sinergija kavitacije i vakum masaže za brže oblikovanje tela i vidljive rezultate.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Vakum fit + anticelulit masaža — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.500 RSD</span>
+                                <span class="vreme">60 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>Kombinacija vakum fit tretmana i ručne anticelulit masaže za oblikovanje i zatezanje tela.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">Popust 20%</span>
+                        <div class="paket-card-header">
+                            <h3>Radiotalasni lifting lica — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">5.200 RSD</span>
+                                <span class="stara-cena">6.500 RSD</span>
+                                <span class="vreme">30 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>5 tretmana RF liftinga lica za zategnutiju, čvršću i podmlađeniju kožu bez hirurških zahvata.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Presoterapija + anticelulit masaža — paket od 5</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">11.500 RSD</span>
+                                <span class="vreme">60 min / tretman</span>
+                            </div>
+                        </div>
+                        <p>Snažna kombinacija aparativnog i ručnog tretmana za maksimalne rezultate u borbi protiv celulita.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="paketi-cta">
+                <h3>Zakažite paket tretmana</h3>
+                <p>Zakažite termin online ili nas kontaktirajte za više informacija o paketima.</p>
+                <div class="btn-group">
+                    <a href="kontakt.html" class="btn">Zakažite termin</a>
+                    <a href="kuponi.html" class="btn">Pogledajte kupone</a>
+                </div>
+            </div>
         </main>
-        
-       <footer>
+
+        <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
-
-        <!-- BACK TO TOP BUTTON -->
         <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

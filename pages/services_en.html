@@ -1,97 +1,221 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Momentum - Services</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script type="module" src="../js/scripts.js"></script>
-  </head>
-   <body>
-    <header>
-    <nav>
-      <div class="container">
-        <a href="index_en.html">
-          <img src="../assets/logo/logo.png" alt="Momentum">
-        </a>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <ul class="nav-menu">
-          <li>
-            <a class="active" href="services_en.html">Services</a>
-            <ul>
-              <li><a href="massage_en.html">Massage</a></li>
-              <li><a href="packages_en.html">Packages</a></li>
-            </ul>
-          </li>
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — massages, body treatments and packages at affordable prices.">
+        <meta property="og:title" content="Services — Momentum Salon, Niš">
+        <meta property="og:description" content="Massages, body treatments and packages at affordable prices in Niš.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/services_en.html">
+        <meta property="og:type" content="website">
 
-          <li><a href="equipment_en.html">Equipment</a></li>
-          <li><a href="coupons_en.html">Coupons</a></li>
-          <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
-          <li><a href="usluge.html" class="language-switcher">
-            <img src="../assets/icons/rs-flag.png" alt="Serbian">
-          </a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-      </div>
-      </div>
-    </nav>
-    </header>
-    <main>
+        <title>Services — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script type="module" src="../js/scripts.js"></script>
 
-        <section class="usluge-wrapper">
+        <style>
+            .usluge-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .usluge-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .usluge-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
+            .usluge-grid {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 25px;
+            }
+            .usluge-card {
+                background: white;
+                border-radius: 16px;
+                padding: 30px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .usluge-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            .usluge-card-icon { font-size: 36px; }
+            .usluge-card h2 {
+                font-size: 22px;
+                color: var(--pink-mid);
+                margin: 0;
+            }
+            .usluge-card p {
+                font-size: 14px;
+                color: var(--brown-light);
+                line-height: 1.7;
+                margin: 0;
+                flex: 1;
+            }
+            .usluge-card .cena-od {
+                font-size: 13px;
+                color: var(--brown-light);
+                margin: 0;
+            }
+            .usluge-card .cena-od span {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--brown);
+            }
+            .usluge-card .btn {
+                display: block;
+                text-align: center;
+                margin-top: auto;
+            }
+            .usluge-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .usluge-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .usluge-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            @media (max-width: 768px) {
+                .usluge-grid { grid-template-columns: 1fr; }
+                .usluge-hero h1 { font-size: 36px; }
+                .usluge-cta { margin: 0 15px 40px; padding: 30px 20px; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress-bar"></div>
 
-            <div class="usluge-levi">
-                <h2>Types of Massage</h2>
+        <header>
+            <nav>
+                <div class="container">
+                    <a href="index_en.html">
+                        <img src="../assets/logo/logo.png" alt="Momentum" />
+                    </a>
+                    <ul class="nav-menu">
+                        <li>
+                            <a class="active" href="services_en.html">Services</a>
+                            <ul>
+                                <li><a href="massage_en.html">Massage</a></li>
+                                <li><a href="packages_en.html">Packages</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="equipment_en.html">Equipment</a></li>
+                        <li><a href="coupons_en.html">Coupons</a></li>
+                        <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
+                        <li>
+                            <a href="usluge.html" class="language-switcher">
+                                <img src="../assets/icons/rs-flag.png" alt="Serbian">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-                <ul>
-                    <li>Relax Massage — 2000 RSD</li>
-                    <li>Therapeutic Massage — 2500 RSD</li>
-                    <li>Facial Massage — 1500 RSD</li>
-                    <li>Hot Stone Massage — 3000 RSD</li>
-                    <li>Anti-Cellulite Massage — 2200 RSD</li>
-                </ul>
-              </div>
-            <div class="usluge-desni">
-                <h3>Massage Packages</h3>
-
-                <p>Packages include a combination of our most popular massages at a discounted price.</p>
-
-                <ul>
-                    <li>Relax Package (3 sessions) — 5500 RSD</li>
-                    <li>Anti-Cellulite Package (5 sessions) — 9500 RSD</li>
-                    <li>Hot Stone Package (3 sessions) — 8000 RSD</li>
-                    <li>Premium Package (relax + facial + hot stone) — 6000 RSD</li>
-                </ul>
+        <main>
+            <div class="usluge-hero">
+                <h1>Our Services</h1>
+                <p>Everything you need for relaxation, body care and shaping — all in one place.</p>
             </div>
 
-        </section>
+            <div class="usluge-grid">
 
-    </main>
-     <footer>
-    <section>
-        <h3>Momentum</h3>
-        <p>A salon dedicated to your relaxation, beauty and body balance.</p>
-    </section>
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">🤲</div>
+                    <h2>Massages</h2>
+                    <p>Hand massages for muscle relaxation, stress relief and body care. Back massage, full body, legs and anti-cellulite massage.</p>
+                    <p class="cena-od">from <span>1.200 RSD</span></p>
+                    <a href="massage_en.html" class="btn">View all →</a>
+                </div>
 
-    <section>
-        <h4>Contact</h4>
-        <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
-        <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
-        <p>📧</p>
-    </section>
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">✨</div>
+                    <h2>Body Treatments</h2>
+                    <p>Modern treatments for body shaping — cavitation, radiofrequency lifting, pressotherapy and vacuum treatments.</p>
+                    <p class="cena-od">from <span>1.000 RSD</span></p>
+                    <a href="equipment_en.html" class="btn">View all →</a>
+                </div>
 
-    <section>
-        <h5>Working Hours</h5>
-        <p>Monday – Friday: 17:00 – 22:00</p>
-        <p>Saturday – Sunday: 12:00 – 22:00</p>
-    </section>
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">🎁</div>
+                    <h2>Packages</h2>
+                    <p>Packages of 5 treatments at a discounted price — save up to 20% and ensure continuity of care.</p>
+                    <p class="cena-od">from <span>4.000 RSD</span></p>
+                    <a href="packages_en.html" class="btn">View all →</a>
+                </div>
 
-    <section>
-        <p>© 2026 Momentum. All rights reserved.</p>
-    </section>
-</footer>
+            </div>
+
+            <div class="usluge-cta">
+                <h3>Ready for your treatment?</h3>
+                <p>Book an appointment online or contact us for more information.</p>
+                <div class="btn-group">
+                    <a href="contact_en.html" class="btn">Book an appointment</a>
+                    <a href="coupons_en.html" class="btn">Coupons</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <section>
+                <h3>Momentum</h3>
+                <p>A salon dedicated to your relaxation, beauty and body balance.</p>
+            </section>
+            <section>
+                <h4>Contact</h4>
+                <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
+                <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
+                <p>📧</p>
+            </section>
+            <section>
+                <h5>Working Hours</h5>
+                <p>Monday – Friday: 17:00 – 22:00</p>
+                <p>Saturday – Sunday: 12:00 – 22:00</p>
+            </section>
+            <section>
+                <p>© 2026 Momentum. All rights reserved.</p>
+            </section>
+        </footer>
+
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

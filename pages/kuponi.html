@@ -1,20 +1,213 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum-Kuponi</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — poklon kuponi za masaže i tretmane. Savršen poklon za voljenu osobu.">
+        <meta property="og:title" content="Poklon kuponi — Momentum Salon, Niš">
+        <meta property="og:description" content="Poklon kuponi za masaže i tretmane u Nišu. Važe 6 meseci od kupovine.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/kuponi.html">
+        <meta property="og:type" content="website">
+
+        <title>Poklon kuponi — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .page-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .page-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 650px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
+
+            .kuponi-info {
+                max-width: 800px;
+                margin: 0 auto 50px;
+                padding: 30px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+                text-align: center;
+            }
+            .kuponi-info-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 25px;
+                margin-top: 25px;
+            }
+            .kuponi-info-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .kuponi-info-item .icon {
+                font-size: 32px;
+            }
+            .kuponi-info-item h4 {
+                font-size: 15px;
+                color: var(--brown);
+                margin: 0;
+            }
+            .kuponi-info-item p {
+                font-size: 13px;
+                color: var(--brown-light);
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .kuponi-grid {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+
+            .kupon-card {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+            .kupon-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            }
+            .kupon-card-top {
+                background: linear-gradient(135deg, var(--pink-light), var(--pink-mid));
+                padding: 30px;
+                text-align: center;
+                position: relative;
+            }
+            .kupon-card-top::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+                right: 0;
+                height: 30px;
+                background: white;
+                border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            }
+            .kupon-card-top .emoji {
+                font-size: 42px;
+                display: block;
+                margin-bottom: 10px;
+            }
+            .kupon-card-top h3 {
+                font-size: 20px;
+                color: var(--brown);
+                margin: 0;
+            }
+            .kupon-card-body {
+                padding: 30px 25px 25px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .kupon-card-body p {
+                font-size: 14px;
+                color: var(--brown-light);
+                line-height: 1.7;
+                margin: 0;
+            }
+            .kupon-card-body ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .kupon-card-body ul li {
+                font-size: 14px;
+                color: var(--brown);
+                padding-left: 20px;
+                position: relative;
+            }
+            .kupon-card-body ul li::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--pink-mid);
+                font-weight: 700;
+            }
+            .kupon-card-body .btn {
+                display: block;
+                text-align: center;
+                margin-top: auto;
+            }
+            .kupon-vaznost {
+                font-size: 12px;
+                color: #aaa;
+                text-align: center;
+            }
+
+            .kuponi-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: linear-gradient(135deg, var(--pink-light), #fff5f8);
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .kuponi-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .kuponi-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            @media (max-width: 768px) {
+                .kuponi-grid { grid-template-columns: 1fr; }
+                .kuponi-info-grid { grid-template-columns: 1fr; gap: 20px; }
+                .page-hero h1 { font-size: 36px; }
+                .kuponi-cta { margin: 0 15px 40px; padding: 30px 20px; }
+                .kuponi-info { margin: 0 15px 30px; }
+            }
+        </style>
     </head>
     <body>
+        <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
                     <a href="../index.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a href="usluge.html">Usluge</a>
@@ -23,73 +216,159 @@
                                 <li><a href="paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
                         <li><a href="aparati.html">Aparati</a></li>
                         <li><a class="active" href="kuponi.html">Kuponi</a></li>
                         <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
-                        <li><a href="coupons_en.html" class="language-switcher"><img src="../assets/icons/uk-flag.png" alt="English"></a></li>
+                        <li>
+                            <a href="coupons_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
+                        </li>
                     </ul>
                     <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
-        <main class="container">
-            <h1>Obradujte svoju voljenu osobu</h1>
 
-            <p>
-                Poklon kupon je savršen način da iznenadite nekoga ko vam znači.
-                Bilo da je u pitanju rođendan, godišnjica, ili jednostavno želja
-                da obradujete voljenu osobu - masaža ili tretman u salonu
-                Momentum je poklon koji nikada ne može da omane.
-            </p>
+        <main>
+            <div class="page-hero">
+                <h1>🎁 Obradujte voljenu osobu</h1>
+                <p>Poklon kupon za masažu ili tretman — savršen poklon za rođendan, godišnjicu ili jednostavno da pokažete koliko vam neko znači.</p>
+            </div>
 
-            <p>
-                Kupon možete izabrati u vrednosti po želji, ili prema konkretnoj
-                usluzi. Kupon važi 6 meseci od datuma kupovine.
-            </p>
+            <div class="kuponi-info">
+                <h2>Zašto poklon kupon?</h2>
+                <div class="kuponi-info-grid">
+                    <div class="kuponi-info-item">
+                        <span class="icon">⏰</span>
+                        <h4>Važi 6 meseci</h4>
+                        <p>Kupon važi 6 meseci od datuma kupovine — dovoljno vremena da se iskoristi.</p>
+                    </div>
+                    <div class="kuponi-info-item">
+                        <span class="icon">✍️</span>
+                        <h4>Personalizovan</h4>
+                        <p>Možete dodati ličnu poruku i ime primaoca na kupon.</p>
+                    </div>
+                    <div class="kuponi-info-item">
+                        <span class="icon">💆</span>
+                        <h4>Nezaboravno iskustvo</h4>
+                        <p>Poklon koji pruža pravo opuštanje i negu — uvek dobrodošao.</p>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Vrste poklon kupona</h2>
+            <div class="kuponi-grid">
 
-            <ul>
-                <li>Kupon za relaksacionu masažu (30 min / 60 min)</li>
-                <li>Kupon za anticelulit tretman</li>
-                <li>Kupon za masažu vulkanskim kamenjem</li>
-                <li>Kupon za paket masaža (3, 5 ili 10 masaža)</li>
-            </ul>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">🤲</span>
+                        <h3>Kupon za masažu</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Poklon kupon za jednu masažu po izboru — savršeno za opuštanje i regeneraciju.</p>
+                        <ul>
+                            <li>Masaža leđa (30 ili 45 min)</li>
+                            <li>Masaža celog tela (60 min)</li>
+                            <li>Masaža nogu (30 min)</li>
+                            <li>Ručna anticelulit masaža (40 min)</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Važi 6 meseci od kupovine</span>
+                        <a href="kontakt.html" class="btn">Naručite kupon</a>
+                    </div>
+                </div>
 
-            <p>
-                Za izradu personalizovanog kupona, kontaktirajte nas putem
-                stranice
-                <a href="kontakt.html">Kontakt</a>.
-            </p>
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">✨</span>
+                        <h3>Kupon za aparativni tretman</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Poklon kupon za jedan aparativni tretman po izboru — za oblikovanje i negu tela.</p>
+                        <ul>
+                            <li>Ultrazvučna kavitacija</li>
+                            <li>Radiotalasni lifting</li>
+                            <li>Presoterapija</li>
+                            <li>Vakum tretman</li>
+                            <li>RF lifting lica</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Važi 6 meseci od kupovine</span>
+                        <a href="kontakt.html" class="btn">Naručite kupon</a>
+                    </div>
+                </div>
+
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">🎀</span>
+                        <h3>Paket kupon</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Poklon kupon za paket od 5 tretmana — idealno za one koji žele kontinuiranu negu.</p>
+                        <ul>
+                            <li>Paket masaža celog tela (5x)</li>
+                            <li>Paket masaža leđa (5x)</li>
+                            <li>Paket aparativnih tretmana (5x)</li>
+                            <li>Kombinovani paketi sa popustom</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Važi 6 meseci od kupovine</span>
+                        <a href="kontakt.html" class="btn">Naručite kupon</a>
+                    </div>
+                </div>
+
+                <div class="kupon-card">
+                    <div class="kupon-card-top">
+                        <span class="emoji">💝</span>
+                        <h3>Kupon po vrednosti</h3>
+                    </div>
+                    <div class="kupon-card-body">
+                        <p>Kupon u vrednosti po Vašem izboru — primalac sam bira tretman koji mu najviše odgovara.</p>
+                        <ul>
+                            <li>Iznos po želji</li>
+                            <li>Slobodan izbor tretmana</li>
+                            <li>Personalizovana poruka</li>
+                            <li>Može se koristiti za bilo koju uslugu</li>
+                        </ul>
+                        <span class="kupon-vaznost">⏱ Važi 6 meseci od kupovine</span>
+                        <a href="kontakt.html" class="btn">Naručite kupon</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="kuponi-cta">
+                <h3>Kako naručiti kupon?</h3>
+                <p>Kontaktirajte nas putem kontakt forme ili telefona. Navedite za koji tretman želite kupon i da li želite personalnu poruku — mi ćemo se pobrinuti za ostalo!</p>
+                <div class="btn-group">
+                    <a href="kontakt.html" class="btn">Kontaktirajte nas</a>
+                    <a href="tel:+381603321512" class="btn">060 3321 512</a>
+                </div>
+            </div>
         </main>
+
         <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

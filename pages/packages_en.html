@@ -3,28 +3,51 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <link rel="icon" type="image/png" href="../assets/logo/logo.png">
-        <meta name="description" content="Momentum salon Niš — massage packages at discounted prices. Book your appointment today!">
-        <meta property="og:title" content="Momentum — Massage Packages, Niš">
-        <meta property="og:description" content="Massage packages at discounted prices in Niš. Book your appointment today!">
+        <meta name="description" content="Momentum salon Niš — massage and treatment packages of 5 sessions at discounted prices. Save up to 20%.">
+        <meta property="og:title" content="Packages — Momentum Salon, Niš">
+        <meta property="og:description" content="Packages of 5 treatments with up to 20% discount in Niš.">
         <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
         <meta property="og:url" content="https://momentumnis.com/pages/packages_en.html">
         <meta property="og:type" content="website">
 
-        <title>Momentum - Massage Packages</title>
+        <title>Packages — Momentum</title>
         <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero { text-align: center; padding: 60px 20px 40px; }
+            .page-hero h1 { font-size: 48px; color: var(--brown); margin-bottom: 15px; }
+            .page-hero p { font-size: 18px; color: var(--brown-light); max-width: 600px; margin: 0 auto; line-height: 1.7; font-style: italic; }
+            .paketi-section { max-width: 1100px; margin: 0 auto 50px; padding: 0 20px; }
+            .paketi-section h2 { font-size: 28px; color: var(--brown); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--pink-light); }
+            .paketi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .paket-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; display: flex; flex-direction: column; gap: 10px; }
+            .paket-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+            .paket-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+            .paket-card h3 { font-size: 16px; color: var(--pink-mid); margin: 0; line-height: 1.4; }
+            .paket-card-cena { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+            .paket-card-cena .cena { font-size: 20px; font-weight: 700; color: var(--brown); white-space: nowrap; }
+            .paket-card-cena .stara-cena { font-size: 12px; color: #bbb; text-decoration: line-through; white-space: nowrap; }
+            .paket-card-cena .vreme { font-size: 11px; color: #aaa; white-space: nowrap; }
+            .paket-card p { font-size: 13px; color: var(--brown-light); line-height: 1.6; margin: 0; }
+            .badge-popust { display: inline-block; background: #d4edda; color: #155724; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; width: fit-content; }
+            .paketi-cta { text-align: center; padding: 50px 20px; max-width: 650px; margin: 0 auto 60px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+            .paketi-cta h3 { font-size: 28px; color: var(--brown); margin-bottom: 12px; }
+            .paketi-cta p { color: var(--brown-light); margin-bottom: 25px; line-height: 1.7; }
+            .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+            @media (max-width: 768px) { .paketi-grid { grid-template-columns: 1fr; } .page-hero h1 { font-size: 36px; } .paketi-cta { margin: 0 15px 40px; padding: 30px 20px; } }
+        </style>
     </head>
     <body>
         <div class="progress-bar"></div>
-
         <header>
             <nav>
                 <div class="container">
                     <a href="index_en.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a class="active" href="services_en.html">Services</a>
@@ -36,42 +59,198 @@
                         <li><a href="equipment_en.html">Equipment</a></li>
                         <li><a href="coupons_en.html">Coupons</a></li>
                         <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
-                        <li>
-                            <a href="paketi_masaza.html" class="language-switcher">
-                                <img src="../assets/icons/rs-flag.png" alt="Serbian">
-                            </a>
-                        </li>
+                        <li><a href="paketi_masaza.html" class="language-switcher"><img src="../assets/icons/rs-flag.png" alt="Serbian"></a></li>
                     </ul>
-
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="hamburger"><span></span><span></span><span></span></div>
                 </div>
             </nav>
         </header>
 
-        <main class="container">
-            <h1>Massage Packages</h1>
+        <main>
+            <div class="page-hero">
+                <h1>Packages</h1>
+                <p>Packages of 5 treatments — save up to 20% and ensure continuity of care for the best results.</p>
+            </div>
 
-            <section>
-                <h2>Package Offers</h2>
-                <ul>
-                    <li>Package 1 (3 massages) — 5000 RSD</li>
-                    <li>Package 2 (5 massages) — 7500 RSD</li>
-                    <li>Package 3 (10 massages) — 14000 RSD</li>
-                </ul>
-            </section>
+            <div class="paketi-section">
+                <h2>🤲 Massage Packages</h2>
+                <div class="paketi-grid">
 
-            <section>
-                <h2>Description</h2>
-                <p>
-                    Our massage packages offer significant savings and provide
-                    continuity of treatments for best results. They are suitable
-                    as a gift or for personal care.
-                </p>
-            </section>
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Full Body Massage — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">10.000 RSD</span>
+                                <span class="vreme">60 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 full body massage sessions — complete relaxation and body care with significant savings.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Back Massage — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">6.500 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 back massage sessions — regular tension and pain relief for lasting results.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Anti-Cellulite Massage — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">6.500 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 anti-cellulite massage sessions — regular treatments for visibly reduced cellulite and firmer skin.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="paketi-section">
+                <h2>✨ Body Treatment Packages</h2>
+                <div class="paketi-grid">
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>Ultrasound Cavitation — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">5.600 RSD</span>
+                                <span class="stara-cena">7.000 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 cavitation sessions for fat breakdown and body shaping.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>RF Lifting — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.800 RSD</span>
+                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 radiofrequency lifting sessions for skin tightening and collagen stimulation.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>Cavitation + RF Lifting — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.800 RSD</span>
+                                <span class="stara-cena">11.000 RSD</span>
+                                <span class="vreme">60 min / session</span>
+                            </div>
+                        </div>
+                        <p>Combined package for maximum results — cavitation + lifting in one session.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>Pressotherapy — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.800 RSD</span>
+                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="vreme">45 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 pressotherapy sessions for lymphatic drainage, swelling reduction and body detox.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>Pressotherapy + Cavitation — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">9.200 RSD</span>
+                                <span class="stara-cena">11.500 RSD</span>
+                                <span class="vreme">60 min / session</span>
+                            </div>
+                        </div>
+                        <p>Combination of lymphatic drainage and cavitation for detox and body shaping simultaneously.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Vacuum — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">4.000 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 vacuum sessions for improved circulation and cellulite reduction per area.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>Cavitation + Vacuum — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.000 RSD</span>
+                                <span class="stara-cena">10.000 RSD</span>
+                                <span class="vreme">50 min / session</span>
+                            </div>
+                        </div>
+                        <p>Synergy of cavitation and vacuum massage for faster body shaping and visible results.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Vacuum Fit + Anti-Cellulite Massage — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">8.500 RSD</span>
+                                <span class="vreme">60 min / session</span>
+                            </div>
+                        </div>
+                        <p>Vacuum fit combined with anti-cellulite massage for body shaping and skin tightening.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <span class="badge-popust">20% discount</span>
+                        <div class="paket-card-header">
+                            <h3>RF Face Lifting — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">5.200 RSD</span>
+                                <span class="stara-cena">6.500 RSD</span>
+                                <span class="vreme">30 min / session</span>
+                            </div>
+                        </div>
+                        <p>5 RF face lifting sessions for tighter, firmer and more youthful skin without surgery.</p>
+                    </div>
+
+                    <div class="paket-card">
+                        <div class="paket-card-header">
+                            <h3>Pressotherapy + Anti-Cellulite Massage — 5 sessions</h3>
+                            <div class="paket-card-cena">
+                                <span class="cena">11.500 RSD</span>
+                                <span class="vreme">60 min / session</span>
+                            </div>
+                        </div>
+                        <p>Powerful combination of device and manual treatment for maximum results against cellulite.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="paketi-cta">
+                <h3>Book a Package</h3>
+                <p>Book an appointment online or contact us for more information about packages.</p>
+                <div class="btn-group">
+                    <a href="contact_en.html" class="btn">Book an appointment</a>
+                    <a href="coupons_en.html" class="btn">View coupons</a>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -79,25 +258,21 @@
                 <h3>Momentum</h3>
                 <p>A salon dedicated to your relaxation, beauty and body balance.</p>
             </section>
-
             <section>
                 <h4>Contact</h4>
                 <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Working Hours</h5>
                 <p>Monday – Friday: 17:00 – 22:00</p>
                 <p>Saturday – Sunday: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. All rights reserved.</p>
             </section>
         </footer>
-
         <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

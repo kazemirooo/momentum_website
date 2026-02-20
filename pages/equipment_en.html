@@ -1,95 +1,235 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Momentum - Equipment</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script type="module" src="../js/scripts.js"></script>
-  </head>
-      <body>
-      <header>
-    <nav>
-      <div class="container">
-        <a href="index_en.html">
-          <img src="../assets/logo/logo.png" alt="Momentum">
-        </a>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <ul class="nav-menu">
-          <li>
-            <a href="services_en.html">Services</a>
-            <ul>
-              <li><a href="massage_en.html">Massage</a></li>
-              <li><a href="packages_en.html">Packages</a></li>
-            </ul>
-          </li>
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — body treatment equipment. Cavitation, radiofrequency lifting, pressotherapy and vacuum treatments.">
+        <meta property="og:title" content="Body Treatments — Momentum Salon, Niš">
+        <meta property="og:description" content="Modern body shaping treatments in Niš. From 1.000 RSD.">
+        <meta property="og:image" content="https://momentumnis.com/assets/photos/salon1.jpg">
+        <meta property="og:url" content="https://momentumnis.com/pages/equipment_en.html">
+        <meta property="og:type" content="website">
 
-          <li><a class="active" href="equipment_en.html">Equipment</a></li>
-          <li><a href="coupons_en.html">Coupons</a></li>
-          <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
-          <li><a href="aparati.html" class="language-switcher">
-            <img src="../assets/icons/rs-flag.png" alt="Serbian">
-          </a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-      </div>
-      </div>
-    </nav>
-    </header>
-     <main class="container">
+        <title>Body Treatments — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script type="module" src="../js/scripts.js"></script>
 
-        <h1>Equipment</h1>
+        <style>
+            .page-hero { text-align: center; padding: 60px 20px 40px; }
+            .page-hero h1 { font-size: 48px; color: var(--brown); margin-bottom: 15px; }
+            .page-hero p { font-size: 18px; color: var(--brown-light); max-width: 600px; margin: 0 auto; line-height: 1.7; font-style: italic; }
+            .galerija { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 250px 250px; gap: 12px; }
+            .galerija-item { overflow: hidden; border-radius: 12px; }
+            .galerija-item:first-child { grid-row: 1 / 3; }
+            .galerija-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+            .galerija-item:hover img { transform: scale(1.05); }
+            .tretmani-section { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
+            .tretmani-section h2 { font-size: 32px; color: var(--brown); margin-bottom: 30px; text-align: center; }
+            .tretmani-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .tretman-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; display: flex; flex-direction: column; gap: 10px; }
+            .tretman-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+            .tretman-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+            .tretman-card h3 { font-size: 17px; color: var(--pink-mid); margin: 0; line-height: 1.4; }
+            .tretman-card-cena { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+            .tretman-card-cena .cena { font-size: 20px; font-weight: 700; color: var(--brown); white-space: nowrap; }
+            .tretman-card-cena .vreme { font-size: 12px; color: #aaa; white-space: nowrap; }
+            .tretman-card p { font-size: 13px; color: var(--brown-light); line-height: 1.7; margin: 0; }
+            .aparati-cta { text-align: center; padding: 50px 20px; max-width: 650px; margin: 0 auto 60px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+            .aparati-cta h3 { font-size: 28px; color: var(--brown); margin-bottom: 12px; }
+            .aparati-cta p { color: var(--brown-light); margin-bottom: 25px; line-height: 1.7; }
+            .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+            @media (max-width: 768px) { .galerija { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; } .galerija-item:first-child { grid-row: 1; grid-column: 1 / 3; } .tretmani-grid { grid-template-columns: 1fr; } .page-hero h1 { font-size: 36px; } .aparati-cta { margin: 0 15px 40px; padding: 30px 20px; } }
+        </style>
+    </head>
+    <body>
+        <div class="progress-bar"></div>
+        <header>
+            <nav>
+                <div class="container">
+                    <a href="index_en.html">
+                        <img src="../assets/logo/logo.png" alt="Momentum" />
+                    </a>
+                    <ul class="nav-menu">
+                        <li>
+                            <a href="services_en.html">Services</a>
+                            <ul>
+                                <li><a href="massage_en.html">Massage</a></li>
+                                <li><a href="packages_en.html">Packages</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="active" href="equipment_en.html">Equipment</a></li>
+                        <li><a href="coupons_en.html">Coupons</a></li>
+                        <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
+                        <li><a href="aparati.html" class="language-switcher"><img src="../assets/icons/rs-flag.png" alt="Serbian"></a></li>
+                    </ul>
+                    <div class="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </nav>
+        </header>
 
-        <section>
-            <article>
-                <h2>Equipment 1</h2>
-                <img src="../assets/photos/aparat1.jpg" alt="Equipment 1">
-                <p>Brief description of equipment 1.</p>
-            </article>
-            <article>
-                <h2>Equipment 2</h2>
-                <img src="../assets/photos/aparat2.jpg" alt="Equipment 2">
-                <p>Brief description of equipment 2.</p>
-            </article>
-            <article>
-                <h2>Equipment 3</h2>
-                <img src="../assets/photos/aparat3.jpg" alt="Equipment 3">
-                <p>Brief description of equipment 3.</p>
-            </article>
-            <article>
-                <h2>Equipment 4</h2>
-                <img src="../assets/photos/aparat4.jpg" alt="Equipment 4">
-                <p>Brief description of equipment 4.</p>
-            </article>
+        <main>
+            <div class="page-hero">
+                <h1>Body Treatments</h1>
+                <p>Modern treatments for body shaping, skin tightening and cellulite reduction — with the latest equipment.</p>
+            </div>
 
-        </section>
+            <div class="galerija">
+                <div class="galerija-item"><img src="../assets/photos/salon1.jpg" alt="Treatment room"></div>
+                <div class="galerija-item"><img src="../assets/photos/salon2.jpg" alt="Reception"></div>
+                <div class="galerija-item"><img src="../assets/photos/salon4.jpg" alt="Waiting area"></div>
+                <div class="galerija-item"><img src="../assets/photos/salon3.jpg" alt="Pressotherapy room"></div>
+                <div class="galerija-item"><img src="../assets/photos/salon5.jpg" alt="Salon interior"></div>
+            </div>
 
-    </main>
-     <footer>
-    <section>
-        <h3>Momentum</h3>
-        <p>A salon dedicated to your relaxation, beauty and body balance.</p>
-    </section>
+            <div class="tretmani-section">
+                <h2>Our Treatments</h2>
+                <div class="tretmani-grid">
 
-    <section>
-        <h4>Contact</h4>
-        <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
-        <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
-        <p>📧</p>
-    </section>
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Ultrasound Cavitation</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.500 RSD</span>
+                                <span class="vreme">30 min / area</span>
+                            </div>
+                        </div>
+                        <p>A treatment that helps break down fat deposits, reduce measurements and shape the body. Skin becomes firmer, with visible results after just a few sessions.</p>
+                    </div>
 
-    <section>
-        <h5>Working Hours</h5>
-        <p>Monday – Friday: 17:00 – 22:00</p>
-        <p>Saturday – Sunday: 12:00 – 22:00</p>
-    </section>
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Radiofrequency Lifting</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.300 RSD</span>
+                                <span class="vreme">30 min / area</span>
+                            </div>
+                        </div>
+                        <p>Radiofrequency tightens skin and improves its tone. Thermal energy penetrates deeper skin layers, stimulates circulation and natural collagen production. Skin becomes smoother and firmer.</p>
+                    </div>
 
-    <section>
-        <p>© 2026 Momentum. All rights reserved.</p>
-    </section>
-</footer>
-  </body>
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Vacuum Treatment</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.000 RSD</span>
+                                <span class="vreme">10 min / area</span>
+                            </div>
+                        </div>
+                        <p>Vacuum massage improves circulation, reduces cellulite and helps shape the body. A quick and effective treatment that combines great with other body treatments.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Pressotherapy</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.400 RSD</span>
+                                <span class="vreme">30 min</span>
+                            </div>
+                        </div>
+                        <p>Non-invasive lymphatic drainage treatment using special inflatable cuffs to stimulate circulation and remove excess fluid. Reduces swelling, accelerates detoxification and improves skin tone.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>RF Face Lifting</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.500 RSD</span>
+                                <span class="vreme">30 min</span>
+                            </div>
+                        </div>
+                        <p>RF face lifting uses radio waves to heat deeper skin layers, stimulating natural collagen and elastin production. The result is tighter, firmer and more youthful skin without surgery.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Cavitation + RF Lifting</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.500 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Combination of two treatments for maximum results — cavitation breaks down fat deposits while RF lifting tightens skin and improves its appearance.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Cavitation + Vacuum</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.200 RSD</span>
+                                <span class="vreme">40 min / area</span>
+                            </div>
+                        </div>
+                        <p>Synergy of cavitation and vacuum massage for faster body shaping and cellulite reduction. An effective combination for visible results in a shorter time.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Pressotherapy + Cavitation</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.600 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Combination of lymphatic drainage and cavitation for detoxification and body shaping simultaneously. Ideal for reducing swelling and fat deposits at the same time.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Pressotherapy + Anti-Cellulite Massage</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.600 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Powerful combination of device and manual treatment. Pressotherapy prepares the body, while manual anti-cellulite massage further breaks down cellulite and improves skin appearance.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Vacuum Fit + Anti-Cellulite Massage</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.900 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Vacuum fit treatment combined with manual anti-cellulite massage for body shaping and skin tightening. Visible results after just the first few treatments.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="aparati-cta">
+                <h3>Book a Treatment</h3>
+                <p>Contact us or book an appointment online. We also recommend our treatment packages with up to 20% discount.</p>
+                <div class="btn-group">
+                    <a href="contact_en.html" class="btn">Book an appointment</a>
+                    <a href="packages_en.html" class="btn">Treatment packages</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <section>
+                <h3>Momentum</h3>
+                <p>A salon dedicated to your relaxation, beauty and body balance.</p>
+            </section>
+            <section>
+                <h4>Contact</h4>
+                <p>📍 Radoja Dakića 47, Unit 7, Niš</p>
+                <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
+                <p>📧</p>
+            </section>
+            <section>
+                <h5>Working Hours</h5>
+                <p>Monday – Friday: 17:00 – 22:00</p>
+                <p>Saturday – Sunday: 12:00 – 22:00</p>
+            </section>
+            <section>
+                <p>© 2026 Momentum. All rights reserved.</p>
+            </section>
+        </footer>
+        <button id="back-to-top" class="back-to-top">↑</button>
+    </body>
 </html>

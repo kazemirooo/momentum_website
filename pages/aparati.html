@@ -1,109 +1,392 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum-Aparati</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — aparativni tretmani za oblikovanje tela. Kavitacija, radiotalasni lifting, presoterapija i vakum tretmani.">
+        <meta property="og:title" content="Aparativni tretmani — Momentum Salon, Niš">
+        <meta property="og:description" content="Savremeni aparativni tretmani za oblikovanje tela u Nišu. Od 1.000 RSD.">
+        <meta property="og:image" content="https://momentumnis.com/assets/photos/salon1.jpg">
+        <meta property="og:url" content="https://momentumnis.com/pages/aparati.html">
+        <meta property="og:type" content="website">
+
+        <title>Aparativni tretmani — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+        <style>
+            .page-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .page-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .page-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
+
+            /* GALERIJA */
+            .galerija {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-rows: 250px 250px;
+                gap: 12px;
+            }
+            .galerija-item {
+                overflow: hidden;
+                border-radius: 12px;
+            }
+            .galerija-item:first-child {
+                grid-row: 1 / 3;
+            }
+            .galerija-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+            }
+            .galerija-item:hover img {
+                transform: scale(1.05);
+            }
+
+            /* TRETMANI */
+            .tretmani-section {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+            }
+            .tretmani-section h2 {
+                font-size: 32px;
+                color: var(--brown);
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .tretmani-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .tretman-card {
+                background: white;
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .tretman-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            .tretman-card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .tretman-card h3 {
+                font-size: 17px;
+                color: var(--pink-mid);
+                margin: 0;
+                line-height: 1.4;
+            }
+            .tretman-card-cena {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                flex-shrink: 0;
+            }
+            .tretman-card-cena .cena {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--brown);
+                white-space: nowrap;
+            }
+            .tretman-card-cena .vreme {
+                font-size: 12px;
+                color: #aaa;
+                white-space: nowrap;
+            }
+            .tretman-card p {
+                font-size: 13px;
+                color: var(--brown-light);
+                line-height: 1.7;
+                margin: 0;
+            }
+
+            /* CTA */
+            .aparati-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .aparati-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .aparati-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            @media (max-width: 768px) {
+                .galerija {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 180px 180px 180px;
+                }
+                .galerija-item:first-child {
+                    grid-row: 1;
+                    grid-column: 1 / 3;
+                }
+                .tretmani-grid {
+                    grid-template-columns: 1fr;
+                }
+                .page-hero h1 {
+                    font-size: 36px;
+                }
+                .aparati-cta {
+                    margin: 0 15px 40px;
+                    padding: 30px 20px;
+                }
+            }
+        </style>
     </head>
     <body>
+        <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
                     <a href="../index.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a href="usluge.html">Usluge</a>
                             <ul>
                                 <li><a href="masaza.html">Masaža</a></li>
-                                <li>
-                                    <a href="paketi_masaza.html"
-                                        >Paketi masaža</a
-                                    >
-                                </li>
+                                <li><a href="paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
-                        <li>
-                            <a class="active" href="aparati.html">Aparati</a>
-                        </li>
+                        <li><a class="active" href="aparati.html">Aparati</a></li>
                         <li><a href="kuponi.html">Kuponi</a></li>
+                        <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
                         <li>
-                            <a class="kontakt-link" href="kontakt.html"
-                                >Kontakt</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="equipment_en.html"
-                                class="language-switcher"
-                                ><img
-                                    src="../assets/icons/uk-flag.png"
-                                    alt="English"
-                            /></a>
+                            <a href="equipment_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
                         </li>
                     </ul>
                     <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
-        <main class="container">
-            <h1>Aparati</h1>
 
-            <section>
-                <article>
-                    <h2>Aparat 1</h2>
-                    <img src="../assets/photos/aparat1.jpg" alt="Aparat 1" />
-                    <p>Kratak opis aparata 1.</p>
-                </article>
-                <article>
-                    <h2>Aparat 2</h2>
-                    <img src="../assets/photos/aparat2.jpg" alt="Aparat 2" />
-                    <p>Kratak opis aparata 2.</p>
-                </article>
-                <article>
-                    <h2>Aparat 3</h2>
-                    <img src="../assets/photos/aparat3.jpg" alt="Aparat 3" />
-                    <p>Kratak opis aparata 3.</p>
-                </article>
-                <article>
-                    <h2>Aparat 4</h2>
-                    <img src="../assets/photos/aparat4.jpg" alt="Aparat 4" />
-                    <p>Kratak opis aparata 4.</p>
-                </article>
-            </section>
+        <main>
+            <div class="page-hero">
+                <h1>Aparativni tretmani</h1>
+                <p>Savremeni tretmani za oblikovanje tela, zatezanje kože i redukciju celulita — uz najnoviju opremu.</p>
+            </div>
+
+            <!-- GALERIJA -->
+            <div class="galerija">
+                <div class="galerija-item">
+                    <img src="../assets/photos/salon1.jpg" alt="Tretmanska soba">
+                </div>
+                <div class="galerija-item">
+                    <img src="../assets/photos/salon2.jpg" alt="Recepcija">
+                </div>
+                <div class="galerija-item">
+                    <img src="../assets/photos/salon4.jpg" alt="Čekaonica">
+                </div>
+                <div class="galerija-item">
+                    <img src="../assets/photos/salon3.jpg" alt="Soba sa presoterapijom">
+                </div>
+                <div class="galerija-item">
+                    <img src="../assets/photos/salon5.jpg" alt="Prostor salona">
+                </div>
+            </div>
+
+            <!-- TRETMANI -->
+            <div class="tretmani-section">
+                <h2>Naši tretmani</h2>
+                <div class="tretmani-grid">
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Ultrazvučna kavitacija</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.500 RSD</span>
+                                <span class="vreme">30 min / regija</span>
+                            </div>
+                        </div>
+                        <p>Tretman koji pomaže u razgradnji masnih naslaga, smanjenju obima i oblikovanju tela. Koža postaje zategnutija, a rezultati vidljivi već nakon nekoliko tretmana.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Radiotalasni lifting</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.300 RSD</span>
+                                <span class="vreme">30 min / regija</span>
+                            </div>
+                        </div>
+                        <p>Radiofrekvencija zateže kožu i poboljšava njen tonus. Toplotna energija prodire u dublje slojeve, podstiče cirkulaciju i stimuliše prirodnu proizvodnju kolagena. Koža postaje glatkija i čvršća.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Vakum tretman</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.000 RSD</span>
+                                <span class="vreme">10 min / regija</span>
+                            </div>
+                        </div>
+                        <p>Vakum masaža poboljšava cirkulaciju, smanjuje celulit i pomaže u oblikovanju tela. Brz i efikasan tretman koji se odlično kombinuje sa ostalim aparativnim tretmanima.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Presoterapija</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.400 RSD</span>
+                                <span class="vreme">30 min</span>
+                            </div>
+                        </div>
+                        <p>Neinvazivni tretman limfne drenaže koji pomoću specijalnih manžetni podstiče cirkulaciju i izbacivanje viška tečnosti. Smanjuje otoke, ubrzava detoksikaciju i poboljšava tonus kože.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Radiotalasni lifting lica</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.500 RSD</span>
+                                <span class="vreme">30 min</span>
+                            </div>
+                        </div>
+                        <p>RF lifting lica koristi radio-talase za zagrevanje dubljih slojeva kože, čime se podstiče prirodna proizvodnja kolagena i elastina. Rezultat je zategnutija i podmlađenija koža bez hirurškog zahvata.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Kavitacija + Radiotalasni lifting</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.500 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Kombinacija dva tretmana za maksimalne rezultate — kavitacija razgrađuje masne naslage, a radiotalasni lifting zateže kožu i poboljšava njen izgled.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Kavitacija + vakum</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.200 RSD</span>
+                                <span class="vreme">40 min / regija</span>
+                            </div>
+                        </div>
+                        <p>Sinergija kavitacije i vakum masaže za brže oblikovanje tela i smanjenje celulita. Efikasna kombinacija za vidljive rezultate u kraćem vremenskom periodu.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Presoterapija + kavitacija</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.600 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Kombinacija limfne drenaže i kavitacije za detoksikaciju i oblikovanje tela. Idealno za smanjenje otoka i masnih naslaga istovremeno.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Presoterapija + anticelulit masaža</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">2.600 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Snažna kombinacija aparativnog i ručnog tretmana. Presoterapija priprema telo, a ručna anticelulit masaža dodatno razgrađuje celulit i poboljšava izgled kože.</p>
+                    </div>
+
+                    <div class="tretman-card">
+                        <div class="tretman-card-header">
+                            <h3>Vakum fit + anticelulit masaža</h3>
+                            <div class="tretman-card-cena">
+                                <span class="cena">1.900 RSD</span>
+                                <span class="vreme">60 min</span>
+                            </div>
+                        </div>
+                        <p>Vakum fit tretman u kombinaciji sa ručnom anticelulit masažom za oblikovanje tela i zatezanje kože. Vidljivi rezultati već nakon prvih nekoliko tretmana.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="aparati-cta">
+                <h3>Zakažite tretman</h3>
+                <p>Kontaktirajte nas ili zakažite termin online. Preporučujemo i naše pakete tretmana sa popustom do 20%.</p>
+                <div class="btn-group">
+                    <a href="kontakt.html" class="btn">Zakažite termin</a>
+                    <a href="paketi_masaza.html" class="btn">Paketi tretmana</a>
+                </div>
+            </div>
         </main>
-       <footer>
+
+        <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

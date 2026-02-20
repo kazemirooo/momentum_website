@@ -1,97 +1,234 @@
-<!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Momentum-Usluge</title>
-	<link rel="stylesheet" href="../styles/styles.css">
-  <script type="module" src="../js/scripts.js"></script>
-</head>
-	</head>
-   <body>
-    <header>
-    <nav>
-      <div class="container">
-        <a href="../index.html">
-         <img src="../assets/logo/logo.png" alt="Momentum">
-        </a>
+<!doctype html>
+<html lang="sr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <ul class="nav-menu">
-          <li>
-            <a class ="active" href="usluge.html">Usluge</a>
-            <ul>
-              <li><a href="masaza.html">Masaža</a></li>
-              <li><a href="paketi_masaza.html">Paketi masaža</a></li>
-            </ul>
-          </li>
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — masaže, aparativni tretmani i paketi po povoljnim cenama.">
+        <meta property="og:title" content="Usluge — Momentum Salon, Niš">
+        <meta property="og:description" content="Masaže, aparativni tretmani i paketi po povoljnim cenama u Nišu.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/usluge.html">
+        <meta property="og:type" content="website">
 
-          <li><a href="aparati.html">Aparati</a></li>
-          <li><a href="kuponi.html">Kuponi</a></li>
-          <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
-          <li><a href="services_en.html" class="language-switcher"><img src="../assets/icons/uk-flag.png" alt="English"></a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-      </div>
-      </div>
-    </nav>
-    </header>
-    <main>
+        <title>Usluge — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script type="module" src="../js/scripts.js"></script>
 
-        <section class="usluge-wrapper">
+        <style>
+            .usluge-hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+            .usluge-hero h1 {
+                font-size: 48px;
+                color: var(--brown);
+                margin-bottom: 15px;
+            }
+            .usluge-hero p {
+                font-size: 18px;
+                color: var(--brown-light);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.7;
+                font-style: italic;
+            }
 
-            <div class="usluge-levi">
-                <h2>Vrste masaža</h2>
+            .usluge-grid {
+                max-width: 1100px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 25px;
+            }
 
-                <ul>
-                    <li>Relaks masaža — 2000 RSD</li>
-                    <li>Terapeutska masaža — 2500 RSD</li>
-                    <li>Masaža lica — 1500 RSD</li>
-                    <li>Masaža vulkanskim kamenjem — 3000 RSD</li>
-                    <li>Anticelulit masaža — 2200 RSD</li>
-                </ul>
-              </div>
-            <div class="usluge-desni">
-                <h3>Paketi masaža</h3>
+            .usluge-card {
+                background: white;
+                border-radius: 16px;
+                padding: 30px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .usluge-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            }
+            .usluge-card-icon {
+                font-size: 36px;
+            }
+            .usluge-card h2 {
+                font-size: 22px;
+                color: var(--pink-mid);
+                margin: 0;
+            }
+            .usluge-card p {
+                font-size: 14px;
+                color: var(--brown-light);
+                line-height: 1.7;
+                margin: 0;
+                flex: 1;
+            }
+            .usluge-card .cena-od {
+                font-size: 13px;
+                color: var(--brown-light);
+                margin: 0;
+            }
+            .usluge-card .cena-od span {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--brown);
+            }
+            .usluge-card .btn {
+                display: block;
+                text-align: center;
+                margin-top: auto;
+            }
 
-                <p>Paketi uključuju kombinaciju naših najtraženijih masaža, po povoljnijoj ceni.</p>
+            .usluge-cta {
+                text-align: center;
+                padding: 50px 20px;
+                max-width: 650px;
+                margin: 0 auto 60px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            }
+            .usluge-cta h3 {
+                font-size: 28px;
+                color: var(--brown);
+                margin-bottom: 12px;
+            }
+            .usluge-cta p {
+                color: var(--brown-light);
+                margin-bottom: 25px;
+                line-height: 1.7;
+            }
+            .btn-group {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
-                <ul>
-                    <li>Paket relaks (3 termina) — 5500 RSD</li>
-                    <li>Paket anticelulit (5 termina) — 9500 RSD</li>
-                    <li>Paket vulkanski kamen (3 termina) — 8000 RSD</li>
-                    <li>Premium paket (relaks + lice + kamenje) — 6000 RSD</li>
-                </ul>
+            @media (max-width: 768px) {
+                .usluge-grid {
+                    grid-template-columns: 1fr;
+                }
+                .usluge-hero h1 {
+                    font-size: 36px;
+                }
+                .usluge-cta {
+                    margin: 0 15px 40px;
+                    padding: 30px 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress-bar"></div>
+
+        <header>
+            <nav>
+                <div class="container">
+                    <a href="../index.html">
+                        <img src="../assets/logo/logo.png" alt="Momentum" />
+                    </a>
+                    <ul class="nav-menu">
+                        <li>
+                            <a class="active" href="usluge.html">Usluge</a>
+                            <ul>
+                                <li><a href="masaza.html">Masaža</a></li>
+                                <li><a href="paketi_masaza.html">Paketi masaža</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="aparati.html">Aparati</a></li>
+                        <li><a href="kuponi.html">Kuponi</a></li>
+                        <li><a class="kontakt-link" href="kontakt.html">Kontakt</a></li>
+                        <li>
+                            <a href="services_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="usluge-hero">
+                <h1>Naše usluge</h1>
+                <p>Sve što vam treba za opuštanje, negu i oblikovanje tela — na jednom mestu.</p>
             </div>
 
-        </section>
+            <div class="usluge-grid">
 
-    </main>
-      <footer>
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">🤲</div>
+                    <h2>Masaže</h2>
+                    <p>Ručne masaže za opuštanje mišića, redukciju stresa i negu tela. Masaža leđa, celog tela, nogu i anticelulit masaža.</p>
+                    <p class="cena-od">od <span>1.200 RSD</span></p>
+                    <a href="masaza.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">✨</div>
+                    <h2>Aparativni tretmani</h2>
+                    <p>Savremeni tretmani za oblikovanje tela — kavitacija, radiotalasni lifting, presoterapija i vakum tretmani.</p>
+                    <p class="cena-od">od <span>1.000 RSD</span></p>
+                    <a href="aparati.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+                <div class="usluge-card">
+                    <div class="usluge-card-icon">🎁</div>
+                    <h2>Paketi</h2>
+                    <p>Paketi od 5 tretmana po povoljnijoj ceni — uštedite do 20% i obezbedite kontinuitet nege.</p>
+                    <p class="cena-od">od <span>4.000 RSD</span></p>
+                    <a href="paketi_masaza.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+            </div>
+
+            <div class="usluge-cta">
+                <h3>Spremni za tretman?</h3>
+                <p>Zakažite termin online ili nas kontaktirajte za više informacija.</p>
+                <div class="btn-group">
+                    <a href="kontakt.html" class="btn">Zakažite termin</a>
+                    <a href="kuponi.html" class="btn">Kuponi</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
+        <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>
