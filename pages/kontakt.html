@@ -1,138 +1,269 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Momentum-Kontakt</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
+
+        <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+        <meta name="description" content="Momentum salon Niš — zakažite termin online. Kontaktirajte nas putem forme ili telefona.">
+        <meta property="og:title" content="Kontakt — Momentum Salon, Niš">
+        <meta property="og:description" content="Zakažite termin za masažu ili tretman u Momentum salonu u Nišu.">
+        <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
+        <meta property="og:url" content="https://momentumnis.com/pages/kontakt.html">
+        <meta property="og:type" content="website">
+
+        <title>Kontakt — Momentum</title>
+        <link rel="stylesheet" href="../styles/styles.css">
         <script type="module" src="../js/scripts.js"></script>
+
+
     </head>
     <body>
+        <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
                     <a href="../index.html">
                         <img src="../assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a href="usluge.html">Usluge</a>
                             <ul>
                                 <li><a href="masaza.html">Masaža</a></li>
-                                <li>
-                                    <a href="paketi_masaza.html"
-                                        >Paketi masaža</a
-                                    >
-                                </li>
+                                <li><a href="paketi_masaza.html">Paketi masaža</a></li>
                             </ul>
                         </li>
-
                         <li><a href="aparati.html">Aparati</a></li>
                         <li><a href="kuponi.html">Kuponi</a></li>
+                        <li><a class="active kontakt-link" href="kontakt.html">Kontakt</a></li>
                         <li>
-                            <a class="active kontakt-link" href="kontakt.html"
-                                >Kontakt</a
-                            >
-                        </li>
-                        <li>
-                            <a href="contact_en.html" class="language-switcher"
-                                ><img
-                                    src="../assets/icons/uk-flag.png"
-                                    alt="English"
-                            /></a>
+                            <a href="contact_en.html" class="language-switcher">
+                                <img src="../assets/icons/uk-flag.png" alt="English">
+                            </a>
                         </li>
                     </ul>
                     <div class="hamburger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </nav>
         </header>
-        <main class="container">
-            <h1>Zakazivanje termina</h1>
-            <p>
-                Popunite formular ispod kako bismo mogli da proverimo dostupnost
-                termina i da vam se javimo putem mejla ili telefona.
-            </p>
 
-            <form action="#" method="post">
-                <div>
-                    <label for="name">Ime i prezime</label><br />
-                    <input type="text" id="name" name="name" required />
+        <main>
+            <div class="page-hero">
+                <h1>Zakažite termin</h1>
+                <p>Popunite formu i javiće Vam se u najkraćem roku za potvrdu termina.</p>
+            </div>
+
+            <div class="kontakt-wrapper">
+
+                <!-- FORM -->
+                <div class="forma-card">
+                    <h2>Forma za zakazivanje</h2>
+                    <form id="kontakt-forma" action="#" method="post" novalidate>
+
+                        <div class="forma-group">
+                            <label for="name">Ime i prezime *</label>
+                            <input type="text" id="name" name="name" placeholder="Vaše ime i prezime" required />
+                            <span class="error-msg" id="name-error">Unesite ime i prezime.</span>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="vasa@email.com" required />
+                            <span class="error-msg" id="email-error">Unesite ispravnu e-mail adresu.</span>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="phone">Broj telefona *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06x xxx xxxx" required />
+                            <span class="error-msg" id="phone-error">Unesite ispravan broj telefona.</span>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="service">Usluga</label>
+                            <select id="service" name="service">
+                                <option value="">— Izaberite uslugu —</option>
+                                <optgroup label="Masaže">
+                                    <option value="masaza-ledja-45">Masaža leđa (45 min) — 1.900 RSD</option>
+                                    <option value="masaza-ledja-30">Masaža leđa (30 min) — 1.500 RSD</option>
+                                    <option value="masaza-celog-tela">Masaža celog tela (60 min) — 2.300 RSD</option>
+                                    <option value="masaza-nogu">Masaža nogu (30 min) — 1.200 RSD</option>
+                                    <option value="anticelulit-masaza">Ručna anticelulit masaža (40 min) — 1.500 RSD</option>
+                                </optgroup>
+                                <optgroup label="Aparativni tretmani">
+                                    <option value="kavitacija">Ultrazvučna kavitacija (30 min) — 1.500 RSD</option>
+                                    <option value="rf-lifting">Radiotalasni lifting (30 min) — 1.300 RSD</option>
+                                    <option value="vakum">Vakum tretman (10 min) — 1.000 RSD</option>
+                                    <option value="presoterapija">Presoterapija (30 min) — 1.400 RSD</option>
+                                    <option value="rf-lice">Radiotalasni lifting lica (30 min) — 1.500 RSD</option>
+                                    <option value="kavitacija-lifting">Kavitacija + RF lifting (60 min) — 2.500 RSD</option>
+                                    <option value="kavitacija-vakum">Kavitacija + vakum (40 min) — 2.200 RSD</option>
+                                    <option value="preso-kavitacija">Presoterapija + kavitacija (60 min) — 2.600 RSD</option>
+                                    <option value="preso-anticelulit">Presoterapija + anticelulit masaža (60 min) — 2.600 RSD</option>
+                                    <option value="vakumfit-anticelulit">Vakum fit + anticelulit masaža (60 min) — 1.900 RSD</option>
+                                </optgroup>
+                                <optgroup label="Kuponi">
+                                    <option value="kupon">Poklon kupon</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="datum">Željeni datum</label>
+                            <input type="date" id="datum" name="datum" />
+                            <span class="error-msg" id="datum-error"></span>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="vreme">Željeno vreme</label>
+                            <select id="vreme" name="vreme">
+                                <option value="">— Izaberite vreme —</option>
+                            </select>
+                            <span class="forma-hint">Radno vreme: Pon–Pet 17:00–22:00 | Sub–Ned 12:00–22:00</span>
+                            <span class="error-msg" id="vreme-error">Izaberite vreme termina.</span>
+                        </div>
+
+                        <div class="forma-group">
+                            <label for="message">Napomena</label>
+                            <textarea id="message" name="message" placeholder="Dodatne napomene, alergije, posebne želje..."></textarea>
+                        </div>
+
+                        <button type="submit">Zakažite termin</button>
+                    </form>
+                    <p class="sredime-link">Možete nas naći i na <a href="https://www.sredime.rs/nis/salon-momentum" target="_blank" rel="noopener noreferrer">sredi.me</a></p>
                 </div>
 
-                <div>
-                    <label for="email">E-mail</label><br />
-                    <input type="email" id="email" name="email" required />
+                <!-- INFO + MAP -->
+                <div class="info-mapa">
+                    <div class="info-card">
+                        <h2>Informacije</h2>
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div class="info-item-text">
+                                <h4>Adresa</h4>
+                                <p>Radoja Dakića 47, lokal 7, Niš</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div class="info-item-text">
+                                <h4>Telefon</h4>
+                                <a href="tel:+381603321512">060 3321 512</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🕐</span>
+                            <div class="info-item-text">
+                                <h4>Radno vreme</h4>
+                                <p>Ponedeljak – Petak: 17:00 – 22:00</p>
+                                <p>Subota – Nedelja: 12:00 – 22:00</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱</span>
+                            <div class="info-item-text">
+                                <h4>Odgovor</h4>
+                                <p>Javljamo se u roku od 24 sata.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mapa-card">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.6100454829516!2d21.930599!3d43.322421999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4755b1ae8a8f90fd%3A0xc90c366548b15ed!2sMomentum!5e0!3m2!1sen!2srs!4v1771661832465!5m2!1sen!2srs"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="phone">Broj telefona</label><br />
-                    <input type="tel" id="phone" name="phone" required />
-                </div>
-
-                <div>
-                    <label for="datetime">Željeni termin</label><br />
-                    <input
-                        type="datetime-local"
-                        id="datetime"
-                        name="datetime"
-                    />
-                </div>
-
-                <div>
-                    <label for="message">Dodatne želje / izrada kupona</label
-                    ><br />
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        placeholder="Na primer: želim kupon za poklon, tip masaže, napomene..."
-                    ></textarea>
-                </div>
-
-                <button type="submit">Zakazite</button>
-            </form>
-
-            <section>
-                <p>
-                    Naš salon možete pronaći i na platformi
-                    <a
-                        href="https://www.sredime.rs/nis/salon-momentum"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >sredi.me</a
-                    >.
-                </p>
-            </section>
+            </div>
         </main>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Najčešća pitanja</h2>
+            <div class="faq-grid">
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Koje načine plaćanja prihvata Momentum?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Trenutno prihvatamo plaćanje gotovinom.</p>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Kojim danima radi salon?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Radimo svakog dana u nedelji — od ponedeljka do petka 17:00–22:00, a subotom i nedeljom 12:00–22:00.</p>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Da li salon radi nedeljom?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Da, radimo nedeljom od 12:00 do 22:00. Zakazivanje termina putem ove forme ili SrediMe platforme dostupno je 24/7.</p>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Kakve su ocene salona?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Salon Momentum ima ocenu Fantastično 10.0 od 10 na osnovu nezavisnih utisaka klijenata na platformi SrediMe.</p>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Kakve su cene tretmana?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Cene se kreću od 1.000 do 11.500 RSD u zavisnosti od tretmana. Pogledajte naše stranice Masaže, Aparati i Paketi za kompletan cenovnik.</p>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        <h3>Koliko unapred treba zakazati termin?</h3>
+                        <span class="faq-arrow">▾</span>
+                    </div>
+                    <p class="faq-answer">Preporučujemo zakazivanje dan-dva unapred, ali slobodno nas kontaktirajte i za isti dan — javićemo se u roku od 24 sata.</p>
+                </div>
+
+            </div>
+        </div>
+
         <footer>
             <section>
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
+        <button id="back-to-top" class="back-to-top">↑</button>
+
     </body>
-    
 </html>

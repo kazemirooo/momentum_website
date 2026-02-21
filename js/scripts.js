@@ -157,7 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
   const phoneInput = document.getElementById('phone');
-  const datetimeInput = document.getElementById('datetime');
+  const datetimeInput = document.getElementById('datetime'); // null on kontakt page
+
+  if (!nameInput || !emailInput || !phoneInput) return;
 
   // Show error message below input
   const showError = (input, msg) => {
@@ -227,8 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   };
 
-  // Validate datetime field
+  // Validate datetime field — only if it exists on the page
   const validateDatetime = () => {
+    if (!datetimeInput) return true;
     const val = datetimeInput.value;
     if (!val) {
       showError(datetimeInput, 'Molimo izaberite željeni termin');
@@ -246,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nameInput.addEventListener('blur', validateName);
   emailInput.addEventListener('blur', validateEmail);
   phoneInput.addEventListener('blur', validatePhone);
-  datetimeInput.addEventListener('blur', validateDatetime);
+  datetimeInput?.addEventListener('blur', validateDatetime);
 
   // Re-validate on input if field already has an error (debounced)
   nameInput.addEventListener('input', debounce(() => {
@@ -274,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: nameInput.value,
         email: emailInput.value,
         phone: phoneInput.value,
-        datetime: datetimeInput.value,
+        datetime: datetimeInput?.value,
         message: document.getElementById('message').value
       };
 
@@ -327,5 +330,47 @@ document.addEventListener('DOMContentLoaded', () => {
       // Scroll to first error if validation fails
       document.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+  });
+});
+
+// ===== DATE / TIME DROPDOWN =====
+document.addEventListener('DOMContentLoaded', () => {
+  const datumInput = document.getElementById('datum');
+  const vremeSelect = document.getElementById('vreme');
+  if (!datumInput || !vremeSelect) return;
+
+  const pad = n => String(n).padStart(2, '0');
+
+  // Set minimum date to today
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  datumInput.min = todayStr;
+
+  const populateVreme = (dateStr) => {
+    vremeSelect.innerHTML = '<option value="">— Izaberite vreme —</option>';
+    if (!dateStr) return;
+    const isWeekend = [0, 6].includes(new Date(dateStr + 'T12:00:00').getDay());
+    const startHour = isWeekend ? 12 : 17;
+    for (let h = startHour; h <= 22; h++) {
+      const mins = h < 22 ? [':00', ':30'] : [':00'];
+      mins.forEach(min => {
+        const opt = document.createElement('option');
+        opt.value = opt.textContent = `${pad(h)}${min}`;
+        vremeSelect.appendChild(opt);
+      });
+    }
+  };
+
+  datumInput.addEventListener('change', () => {
+    const selected = datumInput.value;
+
+    // Block past dates
+    if (selected < todayStr) {
+      datumInput.value = '';
+      vremeSelect.innerHTML = '<option value="">— Izaberite vreme —</option>';
+      return;
+    }
+
+    populateVreme(selected);
   });
 });
