@@ -12,15 +12,22 @@
         <meta property="og:type" content="website">
 
         <title>Momentum — Salon za masažu, Niš</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/styles.css" />
         <script type="module" src="js/scripts.js"></script>
     </head>
     <body>
-        <!-- PARTICLES BACKGROUND -->
-        <div id="particles-js"></div>
-
-        <!-- Progress bar -->
         <div class="progress-bar"></div>
+
+        <!-- Blurred shapes wallpaper -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
 
         <header>
             <nav>
@@ -28,7 +35,6 @@
                     <a href="#">
                         <img src="assets/logo/logo.png" alt="Momentum" />
                     </a>
-
                     <ul class="nav-menu">
                         <li>
                             <a href="pages/usluge.html">Usluge</a>
@@ -39,16 +45,13 @@
                         </li>
                         <li><a href="pages/aparati.html">Aparati</a></li>
                         <li><a href="pages/kuponi.html">Kuponi</a></li>
-                        <li>
-                            <a class="kontakt-link" href="pages/kontakt.html">Kontakt</a>
-                        </li>
+                        <li><a class="kontakt-link" href="pages/kontakt.html">Kontakt</a></li>
                         <li>
                             <a href="pages/index_en.html" class="language-switcher">
                                 <img src="assets/icons/uk-flag.png" alt="English">
                             </a>
                         </li>
                     </ul>
-
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -59,13 +62,36 @@
         </header>
 
         <main>
+            <!-- HERO -->
             <section class="hero">
+                <p class="hero-eyebrow">Salon za masažu i tretmane • Niš</p>
                 <h1>Momentum</h1>
-                <p class="moto">
-                    Tvoje telo je hram, a svaki dodir obnavlja njegov zamah.
-                </p>
+                <p class="moto">Tvoje telo je hram, a svaki dodir obnavlja njegov zamah.</p>
+                <div class="hero-btns">
+                    <a href="pages/kontakt.html" class="btn">Zakažite termin</a>
+                    <a href="pages/usluge.html" class="btn-outline">Pogledajte usluge</a>
+                </div>
             </section>
 
+            <!-- STATS -->
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-number">10.0</div>
+                    <div class="stat-label">Ocena na SrediMe</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Tretmana u ponudi</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7 dana</div>
+                    <div class="stat-label">U nedelji</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Vreme odgovora</div>
+                </div>
+            </div>
             <section class="bottom-corners">
                 <div class="about">
                     <h2>O nama</h2>
@@ -80,6 +106,49 @@
                     <a href="pages/kuponi.html" class="btn">Kuponi</a>
                 </div>
             </section>
+            <section class="index-services">
+                <h2 class="section-title">Naše <em>usluge</em></h2>
+                <div class="usluge-grid">
+
+                    <div class="usluge-card">
+                    <div class="usluge-card-icon">🤲</div>
+                    <h2>Masaže</h2>
+                        <p>Ručne masaže za opuštanje mišića, redukciju stresa i negu tela. Masaža leđa, celog tela, nogu i anticelulit masaža.</p>
+                        <p class="cena-od">od <span>1.200 RSD</span></p>
+                        <a href="pages/masaza.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+                <div class="usluge-card">
+                <div class="usluge-card-icon">✨</div>
+                    <h2>Aparativni tretmani</h2>
+                        <p>Savremeni tretmani za oblikovanje tela — kavitacija, radiotalasni lifting, presoterapija i vakum tretmani.</p>
+                        <p class="cena-od">od <span>1.000 RSD</span></p>
+                        <a href="pages/aparati.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+                    <div class="usluge-card">
+                    <div class="usluge-card-icon">🎁</div>
+                    <h2>Paketi</h2>
+                        <p>Paketi od 5 tretmana po povoljnijoj ceni — uštedite do 20% i obezbedite kontinuitet nege.</p>
+                        <p class="cena-od">od <span>4.000 RSD</span></p>
+                        <a href="pages/paketi_masaza.html" class="btn">Pogledaj sve →</a>
+                </div>
+
+                </div>
+            </section>
+            <div class="review-section">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-score">10.0</div>
+                <div class="review-label">Fantastično • SrediMe platforma</div>
+                <p class="review-quote">"Profesionalan pristup, opuštajuća atmosfera i tretmani koji zaista daju rezultate."</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <h2>Zakažite termin danas</h2>
+                <p>Dostupni smo svakog dana. Popunite formu i javićemo Vam se u roku od 24 sata.</p>
+                <a href="pages/kontakt.html" class="btn">Zakažite termin →</a>
+            </div>
         </main>
 
         <footer>
@@ -87,53 +156,22 @@
                 <h3>Momentum</h3>
                 <p>Salon posvećen Vašem opuštanju, lepoti i balansu tela.</p>
             </section>
-
             <section>
                 <h4>Kontakt</h4>
                 <p>📍 Radoja Dakića 47, lokal 7, Niš</p>
                 <p>📞 <a href="tel:+381603321512">060 3321 512</a></p>
                 <p>📧</p>
             </section>
-
             <section>
                 <h5>Radno vreme</h5>
                 <p>Ponedeljak – Petak: 17:00 – 22:00</p>
                 <p>Subota – Nedelja: 12:00 – 22:00</p>
             </section>
-
             <section>
                 <p>© 2026 Momentum. Sva prava zadržana.</p>
             </section>
         </footer>
 
-        <!-- PARTICLES.JS — samo na desktopu -->
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <script>
-            if (window.innerWidth > 768) {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: { value: 80, density: { enable: true, value_area: 800 } },
-                        color: { value: "#ffb6c9" },
-                        shape: { type: "circle" },
-                        opacity: { value: 0.5, random: false, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-                        size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
-                        line_linked: { enable: true, distance: 150, color: "#ffc8d9", opacity: 0.4, width: 1 },
-                        move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: {
-                            onhover: { enable: true, mode: "repulse" },
-                            onclick: { enable: true, mode: "push" },
-                            resize: true
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-        </script>
-
-        <!-- Back to top -->
         <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>
