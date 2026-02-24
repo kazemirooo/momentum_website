@@ -1746,3 +1746,8 @@ footer a:hover {
     line-height: 1.7;
     font-style: italic;
 }
+/* ===== TYPING EFFECT CURSOR ===== */
+@keyframes blink {
+    0%, 100% { border-color: var(--pink-dark); }
+    50% { border-color: transparent; }
+}

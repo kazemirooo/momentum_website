@@ -1,4 +1,4 @@
-// ===== scripts.js - Event Listeners =====
+// ===== scripts.js =====
 
 import { isValidEmail, isValidPhone, isValidName, isDateInPast, debounce, throttle } from './helper.js';
 import { encryptFormData } from './crypto.js';
@@ -55,21 +55,158 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== SCROLL ANIMATIONS =====
+// ===== SCROLL FADE-IN + STAGGER =====
 document.addEventListener('DOMContentLoaded', () => {
-  // Select all elements that should animate on scroll
-  const elements = document.querySelectorAll('.about, .bottom-buttons, article, .usluge-levi, .usluge-desni, .testimonial, form');
+  // Elements that fade in one by one when scrolled into view
+  const staggerSelectors = '.usluge-card, .paket-card, .faq-item, .service-card, .about, .bottom-buttons, article, .usluge-levi, .usluge-desni, form, .info-card, .mapa-card, .review-section, .cta-section, .stats-bar, .paketi-cta, .usluge-cta';
+  const staggerEls = document.querySelectorAll(staggerSelectors);
 
-  // Use IntersectionObserver to trigger animation when element enters viewport
+  // Set initial hidden state and stagger delay for sibling elements
+  staggerEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+    // Stagger siblings in the same parent (cards in a grid)
+    const siblings = Array.from(el.parentElement.children).filter(c =>
+      c.matches(staggerSelectors)
+    );
+    const siblingIndex = siblings.indexOf(el);
+    if (siblingIndex > 0) {
+      el.style.transitionDelay = `${siblingIndex * 0.15}s`;
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in-up');
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  elements.forEach(el => observer.observe(el));
+  staggerEls.forEach(el => observer.observe(el));
+
+  // Also fade in section titles
+  document.querySelectorAll('.section-title, .usluge-hero, .page-hero, .faq-section h2, .paketi-section h2').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+});
+
+// ===== TYPING EFFECT (index.html only) =====
+document.addEventListener('DOMContentLoaded', () => {
+  const motoEl = document.querySelector('.hero .moto');
+  if (!motoEl) return;
+
+  const originalText = motoEl.textContent.trim();
+
+  // Only run typing effect if we're on the homepage (has hero-eyebrow)
+  if (!document.querySelector('.hero-eyebrow')) return;
+
+  const phrases = [
+    originalText,
+    'Opuštanje, lepota i balans tela.',
+    'Profesionalni tretmani u srcu Niša.'
+  ];
+
+  // Clear original text and set up typing element
+  motoEl.textContent = '';
+  motoEl.style.opacity = '1';
+  motoEl.style.animation = 'none';
+
+  const typingEl = document.createElement('span');
+  typingEl.style.borderRight = '2px solid var(--pink-dark)';
+  typingEl.style.paddingRight = '4px';
+  typingEl.style.animation = 'blink 0.8s step-end infinite';
+  motoEl.appendChild(typingEl);
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const current = phrases[phraseIndex];
+
+    if (isDeleting) {
+      typingEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typingEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let speed = isDeleting ? 40 : 70;
+
+    if (!isDeleting && charIndex === current.length) {
+      speed = 2500; // Pause at end of phrase
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      speed = 400;
+    }
+
+    setTimeout(type, speed);
+  }
+
+  // Start typing after hero entrance animation finishes
+  setTimeout(type, 1400);
+});
+
+// ===== PAGE TRANSITIONS =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Create overlay element
+  const overlay = document.createElement('div');
+  overlay.id = 'page-overlay';
+  overlay.style.cssText = `
+    position: fixed;
+    inset: 0;
+    background: var(--pink-light);
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    pointer-events: none;
+  `;
+  document.body.appendChild(overlay);
+
+  // Slide overlay out on page load (slide up and away)
+  requestAnimationFrame(() => {
+    overlay.style.transform = 'translateY(-100%)';
+  });
+
+  // Intercept all internal link clicks
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+
+    // Skip anchors, external links, and language switcher
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('tel') || href.startsWith('mailto')) return;
+    if (link.classList.contains('language-switcher')) return;
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const destination = link.href;
+
+      // Slide overlay in from bottom
+      overlay.style.transform = 'translateY(0)';
+
+      // Navigate after animation completes
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 500);
+    });
+  });
+
+  // On page load, slide overlay out
+  window.addEventListener('pageshow', () => {
+    setTimeout(() => {
+      overlay.style.transform = 'translateY(-100%)';
+    }, 50);
+  });
 });
 
 // ===== LOADING SCREEN =====
@@ -291,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
         jsonData[key] = value;
       });
 
-      // Send POST request to local server using Fetch API (MDN pattern)
+      // Send POST request to local server using Fetch API
       try {
         const response = await fetch('http://localhost:8080', {
           method: 'POST',
@@ -301,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify(jsonData),
         });
 
-        // Throw error if response is not OK (e.g. 404, 500)
+        // Throw error if response is not OK
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
@@ -322,7 +459,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
 
       } catch (error) {
-        // Log any network or server errors
         console.error('Fetch error:', error.message);
       }
 
