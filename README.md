@@ -7,74 +7,92 @@ A modern, responsive website for Momentum massage and beauty salon, featuring bi
 - **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
 - **Bilingual Support** - Full Serbian and English language versions
 - **Sticky Navigation** - Smooth scrolling with dynamic navbar effects
-- **Contact Form** - JavaScript validation with live feedback
-- **Service Catalog** - Detailed massage services and packages
-- **Modern UI** - Clean design with hover effects and animations
+- **Contact Form** - JavaScript validation with live feedback and working hours enforcement
+- **Service Catalog** - Detailed massage services, equipment treatments and packages
+- **Modern UI** - Blurred shapes background, glassmorphism cards, Cormorant Garamond typography
+- **Scroll Animations** - Fade-in effects on cards via Intersection Observer
+- **Progress Bar** - Reading progress indicator on scroll
+- **Back to Top** - Floating button for quick navigation
 
 ## 🛠️ Technologies Used
 
 - **HTML5** - Semantic markup
-- **CSS3** - Custom styling with variables, animations, and Grid/Flexbox
-- **JavaScript** - Form validation and interactive features
+- **CSS3** - Custom properties, animations, Grid/Flexbox, glassmorphism effects
+- **JavaScript (ES Modules)** - Form validation, scroll effects, date/time picker logic
+- **Google Fonts** - Cormorant Garamond + DM Sans
 - **Git** - Version control
 
 ## 📁 Project Structure
 
 ```
 momentum_website/
-├── index.html              # Serbian homepage
+├── index.html                  # Serbian homepage
+├── README.md
 ├── assets/
 │   ├── logo/
-│   │   └── logo.png       # Salon logo
+│   │   └── logo.png            # Salon logo
 │   ├── icons/
-│   │   ├── uk-flag.png    # English language switcher
-│   │   └── rs-flag.png    # Serbian language switcher
+│   │   ├── uk-flag.png         # English language switcher
+│   │   └── rs-flag.png         # Serbian language switcher
 │   └── photos/
-│       └── aparat*.jpg    # Equipment images
+│       ├── salon1.jpg
+│       ├── salon2.jpg
+│       ├── salon3.jpg
+│       ├── salon4.jpg
+│       └── salon5.jpg
 ├── pages/
-    ├── index_en.html      # English homepage
-│   ├── usluge.html        # Services (SR)
-│   ├── services_en.html   # Services (EN)
-│   ├── kontakt.html       # Contact (SR)
-│   ├── contact_en.html    # Contact (EN)
-│   ├── aparati.html       # Equipment (SR)
-│   ├── equipment_en.html  # Equipment (EN)
-│   ├── kuponi.html        # Coupons (SR)
-│   ├── coupons_en.html    # Coupons (EN)
-│   ├── masaza.html        # Massage (SR)
-│   ├── massage_en.html    # Massage (EN)
-│   ├── paketi_masaza.html # Packages (SR)
-│   └── packages_en.html   # Packages (EN)
+│   ├── index_en.html           # English homepage
+│   ├── usluge.html             # Services (SR)
+│   ├── services_en.html        # Services (EN)
+│   ├── masaza.html             # Massage (SR)
+│   ├── massage_en.html         # Massage (EN)
+│   ├── paketi_masaza.html      # Packages (SR)
+│   ├── packages_en.html        # Packages (EN)
+│   ├── aparati.html            # Equipment treatments (SR)
+│   ├── equipment_en.html       # Equipment treatments (EN)
+│   ├── kuponi.html             # Gift coupons (SR)
+│   ├── coupons_en.html         # Gift coupons (EN)
+│   ├── kontakt.html            # Contact & booking (SR)
+│   └── contact_en.html         # Contact & booking (EN)
 ├── styles/
-│   └── styles.css         # Main stylesheet
-├── scripts/
-│   └── script.js          # JavaScript functionality
-└── README.md
+│   └── styles.css              # Main stylesheet
+└── js/
+    ├── scripts.js              # Main JS — scroll, navbar, form validation, date picker
+    └── helper.js               # Utility functions (email, phone, name validation etc.)
 ```
 
-## 🎨 Design Features
+## 🎨 Design
 
 ### Color Palette
-- **Primary Pink (Light):** `#ffc8d9`
-- **Primary Pink (Mid):** `#ffb6c9`
-- **Primary Pink (Dark):** `#ff9db5`
-- **Brown (Primary):** `#4a2e2e`
-- **Brown (Light):** `#6b4444`
-- **Background:** `#fff5f8`
+- **Pink Light:** `#ffc8d9`
+- **Pink Mid:** `#ffb6c9`
+- **Pink Dark:** `#ff9db5`
+- **Brown Primary:** `#4a2e2e`
+- **Brown Light:** `#6b4444`
+- **Background:** `#fff9fb`
 
-### Key Components
-- Fixed navbar with scroll effects
-- Dropdown menus with smooth animations
+### Typography
+- **Display / Headings:** Cormorant Garamond (serif)
+- **Body:** DM Sans (sans-serif)
+
+### Key Design Elements
+- Animated blurred shapes background (fixed, CSS keyframes)
+- Glassmorphism cards (`backdrop-filter: blur`)
+- Sticky navbar with scroll effects
+- Dropdown menus with slide-down animation
 - Highlighted contact button
-- Interactive hover effects on cards and buttons
 - Language switcher with flag icons
+- FAQ accordion
+- Stats bar with key numbers
+- Review/rating section
+- CTA section before footer
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Web browser (Chrome, Firefox, Safari, Edge)
-- Text editor (VS Code, Sublime Text, etc.)
-- Git (optional, for version control)
+- VS Code with **Live Server** extension (required for local development)
+- Git
 
 ### Installation
 
@@ -88,37 +106,40 @@ git clone https://github.com/kazemirooo/momentum_website.git
 cd momentum_website
 ```
 
-3. Open `index.html` in your web browser
+3. Open with Live Server in VS Code (required — direct file:// access blocks ES modules)
 
-### Development
+### Development Notes
 
-To modify the website:
-
-1. Edit HTML files in root and `pages/` directory
-2. Modify styles in `styles/styles.css`
-3. Update JavaScript in `scripts/script.js`
-4. Test changes in browser (use Ctrl+Shift+R for hard refresh)
+- Always use **Live Server** locally — `type="module"` scripts are blocked by CORS on `file://` protocol
+- Edit HTML files in root (SR homepage) and `pages/` directory
+- All styles are in `styles/styles.css` — no inline styles
+- JS is split into `scripts.js` (main) and `helper.js` (utilities)
+- Hard refresh with **Ctrl+Shift+R** after CSS changes
 
 ## 📋 Features Breakdown
 
 ### Navigation
 - Responsive navbar with hamburger menu on mobile
-- Sticky positioning with scroll effects
-- Dropdown menus for services
+- Sticky positioning with scroll-triggered background change
+- Dropdown submenu for services
 - Language switcher (SR ↔ EN)
 - Highlighted contact button
 
-### Form Validation
-- Real-time input validation
-- Custom error messages in Serbian/English
-- Success confirmation after submission
-- Prevents submission of invalid data
+### Contact Form & Booking
+- Real-time input validation (name, email, phone)
+- Separate date + time dropdowns (not datetime-local)
+- Working hours enforcement: Mon–Fri 17:00–22:00, Sat–Sun 12:00–22:00
+- Time slots in 30-minute intervals
+- Past date prevention
+- Success/error feedback messages
 
-### Animations
-- Smooth dropdown slide-down effects
-- Hover animations on buttons and cards
-- Scroll-triggered navbar changes
-- Transform effects on interactive elements
+### Animations & Effects
+- Hero section fade-up entrance animations
+- Blurred shapes float animation
+- Scroll-triggered card fade-in (Intersection Observer)
+- Smooth dropdown slide-down
+- Hover lift effects on cards and buttons
+- Scroll progress bar at top of page
 
 ## 🌐 Browser Support
 
@@ -126,13 +147,13 @@ To modify the website:
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+- iOS Safari, Chrome Mobile
 
 ## 📱 Responsive Breakpoints
 
 - **Desktop:** > 768px
-- **Tablet:** 480px - 768px
-- **Mobile:** < 480px
+- **Mobile:** ≤ 768px
+- **Small mobile:** ≤ 480px
 
 ## 🔧 Customization
 
@@ -140,61 +161,44 @@ To modify the website:
 Edit CSS variables in `styles/styles.css`:
 ```css
 :root {
-  --pink-light: #ffc8d9;
-  --pink-mid: #ffb6c9;
-  --pink-dark: #ff9db5;
-  --brown: #4a2e2e;
-  --brown-light: #6b4444;
-  --bg-light: #fff5f8;
+    --pink-light: #ffc8d9;
+    --pink-mid:   #ffb6c9;
+    --pink-dark:  #ff9db5;
+    --brown:      #4a2e2e;
+    --brown-light:#6b4444;
 }
 ```
 
-### Modifying Services
-Update service lists in:
-- `pages/usluge.html` (Serbian)
-- `pages/services_en.html` (English)
+### Changing Fonts
+Replace the Google Fonts link in each HTML file and update `font-family` in `styles.css`.
 
 ### Adding New Pages
-1. Create HTML file in appropriate directory
-2. Add navigation link in all existing pages
-3. Create both Serbian and English versions
-4. Update language switcher links
+1. Create HTML file in `pages/` directory
+2. Add Google Fonts `<link>` in `<head>`
+3. Add `.bg-shapes` div after `<body>` tag
+4. Add navigation link in all existing pages
+5. Create both SR and EN versions
+6. Update language switcher links
 
-## 📝 Future Enhancements
+## 📝 Planned Enhancements
 
-- [ ] Backend integration (PHP/Node.js)
+- [ ] Backend integration for contact form (in progress)
+- [ ] Online booking system with calendar
 - [ ] Database for appointments
-- [ ] Online booking system
-- [ ] Payment gateway for coupons
+- [ ] Payment gateway for gift coupons
 - [ ] Admin dashboard
-- [ ] Blog section
-- [ ] Customer reviews system
 - [ ] Photo gallery with lightbox
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
+- [ ] Customer reviews system
+- [ ] Cookie/GDPR consent banner
+- [ ] 404 custom page
+- [ ] Scroll-triggered animations on all pages
 
 ## 👤 Author
+
 Filip Krstić
-
 - GitHub: [@kazemirooo](https://github.com/kazemiroo)
-- Website: momentumnis.com
-
-## 🙏 Acknowledgments
-
-- Design inspiration from modern spa and wellness websites
-- Icons from Flaticon/Font Awesome
-- Color palette inspired by wellness and relaxation themes
+- Website: [momentumnis.com](https://momentumnis.com)
 
 ---
 
-Made with ❤️ for Momentum Salon
+Made with ❤️ for Momentum Salon, Niš
