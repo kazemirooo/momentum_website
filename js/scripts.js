@@ -510,3 +510,10 @@ document.addEventListener('DOMContentLoaded', () => {
     populateVreme(selected);
   });
 });
+// ===== MARK TOP LEVEL NAV LINKS =====
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.nav-menu li a').forEach(link => {
+        if (link.closest('ul ul')) return;
+        link.classList.add('nav-top-link');
+    });
+});
