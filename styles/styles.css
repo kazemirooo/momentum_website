@@ -1800,3 +1800,59 @@ footer a:hover {
     0%, 100% { border-color: var(--pink-dark); }
     50% { border-color: transparent; }
 }
+/* ===== CORNER HALFTONE ===== */
+nav {
+    position: relative;
+    overflow: hidden;
+}
+
+nav::before,
+nav::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle, rgba(74,46,46,0.25) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+nav::before {
+    top: -10px;
+    left: -10px;
+    mask-image: radial-gradient(ellipse at top left, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at top left, black 30%, transparent 75%);
+}
+
+nav::after {
+    top: -10px;
+    right: -10px;
+    mask-image: radial-gradient(ellipse at top right, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at top right, black 30%, transparent 75%);
+}
+
+nav .corner-bl,
+nav .corner-br {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle, rgba(74,46,46,0.25) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+nav .corner-bl {
+    bottom: -10px;
+    left: -10px;
+    mask-image: radial-gradient(ellipse at bottom left, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at bottom left, black 30%, transparent 75%);
+}
+
+nav .corner-br {
+    bottom: -10px;
+    right: -10px;
+    mask-image: radial-gradient(ellipse at bottom right, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at bottom right, black 30%, transparent 75%);
+}

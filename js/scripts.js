@@ -517,3 +517,14 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('nav-top-link');
     });
 });
+// ===== CORNER HALFTONE =====
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    ['corner-bl', 'corner-br'].forEach(cls => {
+        const div = document.createElement('div');
+        div.className = cls;
+        nav.appendChild(div);
+    });
+});
