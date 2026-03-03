@@ -1803,7 +1803,7 @@ footer a:hover {
 /* ===== CORNER HALFTONE ===== */
 nav {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 nav::before,
@@ -1855,4 +1855,42 @@ nav .corner-br {
     right: -10px;
     mask-image: radial-gradient(ellipse at bottom right, black 30%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse at bottom right, black 30%, transparent 75%);
+}
+@media (min-width: 1800px) {
+    .hero {
+        min-height: 60vh;
+        max-height: 800px;
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 120px;
+    }
+
+    .hero .moto {
+        font-size: 26px;
+    }
+
+    .hero-eyebrow {
+        font-size: 15px;
+    }
+
+    nav {
+        padding: 0 100px;
+    }
+
+    .stats-bar {
+        gap: 100px;
+    }
+
+    .stat-number {
+        font-size: 56px;
+    }
+
+    .usluge-grid,
+    .index-services,
+    .bottom-corners,
+    .cta-section {
+        max-width: 1400px;
+    }
 }
