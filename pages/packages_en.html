@@ -3,196 +3,38 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         <link rel="icon" type="image/png" href="../assets/logo/logo.png">
-        <meta name="description" content="Momentum salon Niš — massage and treatment packages of 5 sessions at discounted prices. Save up to 20%.">
+        <meta name="description" content="Momentum salon Niš — massage and treatment packages of 5 sessions.">
         <meta property="og:title" content="Packages — Momentum Salon, Niš">
-        <meta property="og:description" content="Packages of 5 treatments with up to 20% discount in Niš.">
+        <meta property="og:description" content="Packages of 5 treatments in Niš.">
         <meta property="og:image" content="https://momentumnis.com/assets/logo/logo.png">
         <meta property="og:url" content="https://momentumnis.com/pages/packages_en.html">
         <meta property="og:type" content="website">
-
         <title>Packages — Momentum</title>
         <link rel="stylesheet" href="../styles/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
         <script type="module" src="../js/scripts.js"></script>
 
         <style>
-           /* ===== PAGE HERO ===== */
-.page-hero {
-    text-align: center;
-    padding: 60px 20px 40px;
-}
-
-.page-hero h1 {
-    font-size: 48px;
-    color: var(--brown);
-    margin-bottom: 15px;
-}
-
-.page-hero p {
-    font-size: 18px;
-    color: var(--brown-light);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-    font-style: italic;
-}
-
-/* ===== PAKETI SECTION ===== */
-.paketi-section {
-    max-width: 1100px;
-    margin: 0 auto 50px;
-    padding: 0 20px;
-}
-
-.paketi-section h2 {
-    font-size: 28px;
-    color: var(--brown);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--pink-light);
-}
-
-.paketi-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* ===== PAKET CARD ===== */
-.paket-card {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.paket-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.paket-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
-}
-
-.paket-card h3 {
-    font-size: 16px;
-    color: var(--pink-mid);
-    margin: 0;
-    line-height: 1.4;
-}
-
-.paket-card p {
-    font-size: 13px;
-    color: var(--brown-light);
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* ===== CENA ===== */
-.paket-card-cena {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-shrink: 0;
-}
-
-.paket-card-cena .cena {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--brown);
-    white-space: nowrap;
-}
-
-.paket-card-cena .stara-cena {
-    font-size: 12px;
-    color: #bbb;
-    text-decoration: line-through;
-    white-space: nowrap;
-}
-
-.paket-card-cena .vreme {
-    font-size: 11px;
-    color: #aaa;
-    white-space: nowrap;
-}
-
-/* ===== BADGE ===== */
-.badge-popust {
-    display: inline-block;
-    background: #d4edda;
-    color: #155724;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    width: fit-content;
-}
-
-/* ===== PAKETI CTA ===== */
-.paketi-cta {
-    text-align: center;
-    padding: 50px 20px;
-    max-width: 650px;
-    margin: 0 auto 60px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-}
-
-.paketi-cta h3 {
-    font-size: 28px;
-    color: var(--brown);
-    margin-bottom: 12px;
-}
-
-.paketi-cta p {
-    color: var(--brown-light);
-    margin-bottom: 25px;
-    line-height: 1.7;
-}
-
-.btn-group {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-    .page-hero h1 {
-        font-size: 36px;
-    }
-
-    .paketi-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .paketi-cta {
-        margin: 0 15px 40px;
-        padding: 30px 20px;
-    }
-}
+            .page-hero { text-align: center; padding: 60px 20px 40px; }
+            .page-hero h1 { font-size: 48px; color: var(--brown); margin-bottom: 15px; }
+            .page-hero p { font-size: 18px; color: var(--brown-light); max-width: 600px; margin: 0 auto; line-height: 1.7; font-style: italic; }
+            @media (max-width: 768px) {
+                .page-hero h1 { font-size: 36px; }
+                .paketi-grid { grid-template-columns: 1fr; }
+                .paketi-cta { margin: 0 15px 40px; padding: 30px 20px; }
+            }
         </style>
     </head>
     <body>
         <div class="bg-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                    <div class="shape shape-4"></div>
-        </div>     
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
         <div class="progress-bar"></div>
+
         <header>
             <nav>
                 <div class="container">
@@ -210,7 +52,11 @@
                         <li><a href="equipment_en.html">Equipment</a></li>
                         <li><a href="coupons_en.html">Coupons</a></li>
                         <li><a class="kontakt-link" href="contact_en.html">Contact</a></li>
-                        <li><a href="paketi_masaza.html" class="language-switcher"><img src="../assets/icons/rs-flag.png" alt="Serbian"></a></li>
+                        <li>
+                            <a href="paketi_masaza.html" class="language-switcher">
+                                <img src="../assets/icons/rs-flag.png" alt="Serbian">
+                            </a>
+                        </li>
                     </ul>
                     <div class="hamburger"><span></span><span></span><span></span></div>
                 </div>
@@ -220,7 +66,7 @@
         <main>
             <div class="page-hero">
                 <h1>Packages</h1>
-                <p>Packages of 5 treatments — save up to 20% and ensure continuity of care for the best results.</p>
+                <p>Packages of 5 treatments — ensure continuity of care for the best results.</p>
             </div>
 
             <div class="paketi-section">
@@ -235,7 +81,7 @@
                                 <span class="vreme">60 min / session</span>
                             </div>
                         </div>
-                        <p>5 full body massage sessions — complete relaxation and body care with significant savings.</p>
+                        <p>5 full body massage sessions — complete relaxation and body care.</p>
                     </div>
 
                     <div class="paket-card">
@@ -268,12 +114,10 @@
                 <div class="paketi-grid">
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>Ultrasound Cavitation — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">5.600 RSD</span>
-                                <span class="stara-cena">7.000 RSD</span>
+                                <span class="cena">7.000 RSD</span>
                                 <span class="vreme">30 min / session</span>
                             </div>
                         </div>
@@ -281,12 +125,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>RF Lifting — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">4.800 RSD</span>
-                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="cena">6.000 RSD</span>
                                 <span class="vreme">30 min / session</span>
                             </div>
                         </div>
@@ -294,12 +136,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>Cavitation + RF Lifting — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">8.800 RSD</span>
-                                <span class="stara-cena">11.000 RSD</span>
+                                <span class="cena">11.000 RSD</span>
                                 <span class="vreme">60 min / session</span>
                             </div>
                         </div>
@@ -307,12 +147,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>Pressotherapy — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">4.800 RSD</span>
-                                <span class="stara-cena">6.000 RSD</span>
+                                <span class="cena">6.000 RSD</span>
                                 <span class="vreme">45 min / session</span>
                             </div>
                         </div>
@@ -320,12 +158,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>Pressotherapy + Cavitation — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">9.200 RSD</span>
-                                <span class="stara-cena">11.500 RSD</span>
+                                <span class="cena">11.500 RSD</span>
                                 <span class="vreme">60 min / session</span>
                             </div>
                         </div>
@@ -344,12 +180,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>Cavitation + Vacuum — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">8.000 RSD</span>
-                                <span class="stara-cena">10.000 RSD</span>
+                                <span class="cena">10.000 RSD</span>
                                 <span class="vreme">50 min / session</span>
                             </div>
                         </div>
@@ -368,12 +202,10 @@
                     </div>
 
                     <div class="paket-card">
-                        <span class="badge-popust">20% discount</span>
                         <div class="paket-card-header">
                             <h3>RF Face Lifting — 5 sessions</h3>
                             <div class="paket-card-cena">
-                                <span class="cena">5.200 RSD</span>
-                                <span class="stara-cena">6.500 RSD</span>
+                                <span class="cena">6.500 RSD</span>
                                 <span class="vreme">30 min / session</span>
                             </div>
                         </div>
@@ -424,6 +256,7 @@
                 <p>© 2026 Momentum. All rights reserved.</p>
             </section>
         </footer>
+
         <button id="back-to-top" class="back-to-top">↑</button>
     </body>
 </html>

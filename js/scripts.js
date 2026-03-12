@@ -410,13 +410,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (valid) {
       // Encrypt form data before sending
-      const formData = {
-        name: nameInput.value,
-        email: emailInput.value,
-        phone: phoneInput.value,
-        datetime: datetimeInput?.value,
-        message: document.getElementById('message').value
-      };
+    const formData = {
+    name: nameInput.value,
+    email: emailInput.value,
+    phone: phoneInput.value,
+    datetime: datetimeInput?.value || '',
+    message: document.getElementById('message')?.value || ''
+};
 
       const encrypted = encryptFormData(formData);
       console.log('Encrypted data:', encrypted);
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Send POST request to local server using Fetch API
       try {
-        const response = await fetch('http://localhost:8080', {
+        const response = await fetch('https://prime-survery.fly.dev/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
