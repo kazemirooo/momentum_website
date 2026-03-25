@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Send POST request to local server using Fetch API
       try {
-        const response = await fetch('https://prime-survery.fly.dev/submit', {
+        const response = await fetch('https://momentumnis.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
