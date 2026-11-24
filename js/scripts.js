@@ -108,10 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Only run typing effect if we're on the homepage (has hero-eyebrow)
   if (!document.querySelector('.hero-eyebrow')) return;
 
+    const isEn = document.documentElement.lang === 'en';
+
   const phrases = [
     originalText,
-    'Opuštanje, lepota i balans tela.',
-    'Profesionalni tretmani u srcu Niša.'
+    isEn ? 'Relaxation, beauty and body balance.' : 'Opuštanje, lepota i balans tela.',
+    isEn ? 'Professional treatments in the heart of Niš.' : 'Profesionalni tretmani u srcu Niša.'
   ];
 
   // Clear original text and set up typing element
